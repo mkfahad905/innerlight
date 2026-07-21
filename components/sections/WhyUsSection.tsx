@@ -3,9 +3,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 const reasons = [
   {
     emoji: "🎓",
-    title: "Fully Qualified & Registered",
+    title: "Fully Qualified & Experienced",
     description:
-      "All our therapists hold Masters-level qualifications and are registered with the Australian Psychological Society (APS). We maintain rigorous standards of ongoing professional development.",
+      "Holding Masters-level qualifications with years of hands-on clinical experience. Rigorous standards of ongoing professional development ensure you always receive the best evidence-based care.",
   },
   {
     emoji: "🔒",
@@ -17,25 +17,25 @@ const reasons = [
     emoji: "📅",
     title: "Flexible Scheduling",
     description:
-      "We offer morning, evening, and weekend appointments to fit around your life. Easy online booking lets you secure your session in minutes, with instant confirmation.",
+      "Sessions available across a wide range of time slots to fit your life. Easy to get started — no long waitlists, no complicated processes.",
   },
   {
     emoji: "💻",
-    title: "Online & In-Person Sessions",
+    title: "Online Sessions — Anywhere",
     description:
-      "Access support from the comfort of your own home via secure video sessions, or visit our welcoming in-person practice. You choose what works best for you.",
+      "Access support from the comfort of your own home via secure video sessions. All you need is a quiet space and a device with a camera. Just as effective as in-person therapy.",
   },
   {
-    emoji: "💳",
-    title: "Medicare & Insurance Rebates",
+    emoji: "🤝",
+    title: "A Genuine Human Connection",
     description:
-      "We're registered for Medicare rebates (with a GP referral) and are recognised by most major private health insurers, making quality mental health care more accessible.",
+      "Clients find their way here through Instagram because they already feel a sense of trust. That real connection is at the heart of every session — you\'re not just another appointment.",
   },
   {
     emoji: "🌿",
     title: "Genuinely Individualised Care",
     description:
-      "No cookie-cutter treatment plans. We take the time to understand you as a whole person and draw from multiple evidence-based modalities to create a plan that truly fits.",
+      "No cookie-cutter treatment plans. I take the time to understand you as a whole person and draw from multiple evidence-based modalities to create a plan that truly fits.",
   },
 ];
 
@@ -105,7 +105,7 @@ export function WhyUsSection() {
             </p>
           </div>
           <a
-            href="#contact"
+            href="#faq"
             className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-sage-900 font-semibold px-7 py-3.5 rounded-full hover:bg-beige-100 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
           >
             Book Free Consultation

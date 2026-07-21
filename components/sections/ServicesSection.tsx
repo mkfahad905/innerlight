@@ -76,11 +76,11 @@ export function ServicesSection() {
 
                 {/* Learn more link */}
                 <a
-                  href="#contact"
+                  href="#faq"
                   className="inline-flex items-center gap-1.5 text-sage-600 text-sm font-semibold mt-2 group-hover:text-sage-700 transition-colors duration-200"
-                  aria-label={`Book a session for ${service.title}`}
+                  aria-label={`Learn more about ${service.title}`}
                 >
-                  Book a Session
+                  Learn More
                   <svg
                     className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
                     fill="none"
@@ -99,7 +99,7 @@ export function ServicesSection() {
 
         {/* Bottom CTA */}
         <div className="flex justify-center">
-          <Button as="a" href="#contact" variant="outline" size="lg">
+          <Button as="a" href="#faq" variant="outline" size="lg">
             Not sure which service? Let&rsquo;s talk
           </Button>
         </div>

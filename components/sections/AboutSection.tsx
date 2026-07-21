@@ -65,7 +65,7 @@ export function AboutSection() {
                   </span>
                 </div>
                 <p className="text-xs text-muted leading-snug">
-                  M.Psych (Clinical) · APS Registered · EMDR Certified
+                  M.Psych (Clinical) · EMDR Certified
                 </p>
               </div>
             </div>
@@ -88,14 +88,12 @@ export function AboutSection() {
 
             <div className="prose prose-neutral max-w-none text-muted leading-relaxed space-y-4">
               <p>
-                Led by <strong className="text-sage-900">Dr. Sarah Mitchell</strong>, our team of
-                experienced, fully registered therapists brings together diverse expertise across
-                individual therapy, couples counselling, trauma recovery, and more.
+                Experienced, fully qualified, and deeply committed to your growth — I bring together expertise across
+                individual therapy, trauma recovery, anxiety, and more.
               </p>
               <p>
-                We believe that seeking support is an act of courage, not weakness. With over a
-                decade of combined experience and 500+ clients helped, we&rsquo;re honoured to
-                walk alongside you on your unique path to healing.
+                Seeking support is an act of courage, not weakness. With years of experience and a genuinely warm approach,
+                I&rsquo;m honoured to walk alongside you on your unique path to healing.
               </p>
             </div>
 
@@ -116,8 +114,8 @@ export function AboutSection() {
             </div>
 
             <div>
-              <Button as="a" href="#contact" variant="primary" size="md">
-                Book a Free Consultation
+              <Button as="a" href="#faq" variant="primary" size="md">
+                Start Your Journey
               </Button>
             </div>
           </div>

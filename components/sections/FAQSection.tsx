@@ -33,15 +33,16 @@ export function FAQSection() {
                   Still have questions?
                 </h3>
                 <p className="text-sage-300 text-sm mt-1 leading-relaxed">
-                  We&rsquo;re happy to chat. Reach out and we&rsquo;ll respond within one business
-                  day.
+                  Feel free to reach out on Instagram — I&rsquo;m always happy to answer any questions before you start.
                 </p>
               </div>
               <a
-                href="#contact"
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white text-sage-900 font-semibold text-sm px-5 py-3 rounded-full hover:bg-beige-100 transition-all duration-300 hover:-translate-y-0.5"
               >
-                Get in Touch
+                Message on Instagram
                 <svg
                   className="w-4 h-4"
                   fill="none"

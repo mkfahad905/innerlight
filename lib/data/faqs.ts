@@ -33,9 +33,9 @@ export const faqs: FAQ[] = [
   },
   {
     id: "6",
-    question: "What are your fees and do you accept health insurance?",
+    question: "What are your fees and how do I get started?",
     answer:
-      "Our standard session fee is $150 per 50-minute session. We offer a sliding scale for clients who may need more affordable access — please enquire when booking. We are registered with most major health insurers, and many clients can claim a partial rebate through their insurance. We recommend checking with your provider about your specific mental health benefits. Medicare rebates may also be available with a GP referral.",
+      "Session fees vary depending on the type of support you need. The best way to find out about current availability and pricing is to reach out directly — you\'ll find me on Instagram where you can send a message and I\'ll get back to you personally. There\'s no obligation, and no complicated intake forms.",
   },
   {
     id: "7",

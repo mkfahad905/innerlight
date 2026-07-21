@@ -8,11 +8,10 @@ const footerLinks = {
     { label: "Life Transitions", href: "#services" },
   ],
   Company: [
-    { label: "About Us", href: "#about" },
+    { label: "About", href: "#about" },
     { label: "Why Choose Us", href: "#why-us" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
   ],
   Legal: [
     { label: "Privacy Policy", href: "#" },
@@ -77,7 +76,7 @@ export function Footer() {
             </div>
           </a>
           <p className="text-sage-300 text-sm leading-relaxed max-w-xs">
-            Compassionate, evidence-based mental health support for individuals and couples. Your journey to wellbeing starts here.
+            A safe, compassionate space to explore your inner world and move toward lasting emotional wellbeing.
           </p>
           {/* Social icons */}
           <div className="flex items-center gap-3" aria-label="Social media links">

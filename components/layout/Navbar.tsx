@@ -9,7 +9,7 @@ const navLinks = [
   { href: "#why-us", label: "Why Us" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
+  { href: "#faq", label: "Start Journey" },
 ];
 
 export function Navbar() {
@@ -126,12 +126,12 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Button
               as="a"
-              href="#contact"
+              href="#faq"
               variant="primary"
               size="sm"
               className="!px-6 !py-2.5"
             >
-              Book a Session
+              Start Your Journey
             </Button>
           </div>
 
@@ -222,13 +222,13 @@ export function Navbar() {
           <div className="p-6 border-t border-beige-200">
             <Button
               as="a"
-              href="#contact"
+              href="#faq"
               variant="primary"
               size="md"
               className="w-full"
               onClick={() => setMobileOpen(false)}
             >
-              Book a Session
+              Start Your Journey
             </Button>
           </div>
         </div>

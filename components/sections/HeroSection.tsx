@@ -164,12 +164,12 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <Button
               as="a"
-              href="#contact"
+              href="#faq"
               variant="primary"
               size="lg"
               className="w-full sm:w-auto bg-white! text-sage-900! hover:bg-beige-100!"
             >
-              Book Free Consultation
+              Start Your Journey
               <svg
                 className="w-5 h-5"
                 fill="none"
