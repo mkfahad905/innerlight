@@ -79,12 +79,12 @@ function TherapistCard() {
         <div className="flex items-start justify-between gap-3">
           <div className="flex flex-col gap-0.5">
             <p className="font-display font-semibold text-white text-[1.05rem] leading-snug">
-              Therapist Name
+              [Safana Sabeer]
             </p>
-            <p className="text-sage-200 text-xs tracking-wide">PG in Psychology</p>
+            <p className="text-sage-200 text-xs tracking-wide">M.A. Clinical Psychology</p>
           </div>
           <span className="flex-shrink-0 bg-sage-500/75 border border-sage-300/30 text-white text-xs font-semibold px-3 py-1 rounded-full">
-            Professional Title
+            Psychologist
           </span>
         </div>
 
@@ -164,7 +164,9 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <Button
               as="a"
-              href="#faq"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="primary"
               size="lg"
               className="w-full sm:w-auto bg-white! text-sage-900! hover:bg-beige-100!"

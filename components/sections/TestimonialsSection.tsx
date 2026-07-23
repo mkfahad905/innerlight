@@ -32,7 +32,7 @@ export function TestimonialsSection() {
           <SectionHeading
             eyebrow="Testimonials"
             title="Voices of Healing"
-            subtitle="The greatest measure of our work is the transformation we witness in our clients. Here's what some of them have shared."
+            subtitle="The greatest measure of my work is the transformation I witness in my clients. Here&rsquo;s what some of them have shared."
           />
         </div>
 
@@ -86,7 +86,7 @@ export function TestimonialsSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 py-6 border-y border-beige-200">
           {[
             { value: "98%", label: "Client Satisfaction" },
-            { value: "500+", label: "Lives Transformed" },
+            { value: "100+", label: "Clients Supported" },
             { value: "4.9★", label: "Average Rating" },
           ].map((item) => (
             <div key={item.label} className="flex flex-col items-center">

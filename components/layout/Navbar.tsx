@@ -9,7 +9,7 @@ const navLinks = [
   { href: "#why-us", label: "Why Us" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#faq", label: "FAQ" },
-  { href: "#faq", label: "Start Journey" },
+  { href: "https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor", label: "Start Journey" },
 ];
 
 export function Navbar() {
@@ -126,7 +126,9 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Button
               as="a"
-              href="#faq"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="primary"
               size="sm"
               className="!px-6 !py-2.5"
@@ -222,7 +224,9 @@ export function Navbar() {
           <div className="p-6 border-t border-beige-200">
             <Button
               as="a"
-              href="#faq"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="primary"
               size="md"
               className="w-full"

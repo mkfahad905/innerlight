@@ -37,7 +37,7 @@ export function FAQSection() {
                 </p>
               </div>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/[innerlight_counselling]"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white text-sage-900 font-semibold text-sm px-5 py-3 rounded-full hover:bg-beige-100 transition-all duration-300 hover:-translate-y-0.5"

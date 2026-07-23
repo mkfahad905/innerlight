@@ -53,7 +53,7 @@ export function WhyUsSection() {
           <SectionHeading
             eyebrow="Why Choose Us"
             title="Care You Can Trust"
-            subtitle="We know that choosing a therapist is one of the most personal decisions you'll make. Here's what sets InnerLight Counselling apart."
+            subtitle="Choosing a therapist is one of the most personal decisions you&rsquo;ll make. Here&rsquo;s what sets InnerLight Counselling apart."
           />
         </div>
 
@@ -105,7 +105,9 @@ export function WhyUsSection() {
             </p>
           </div>
           <a
-            href="#faq"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-sage-900 font-semibold px-7 py-3.5 rounded-full hover:bg-beige-100 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
           >
             Book Free Consultation

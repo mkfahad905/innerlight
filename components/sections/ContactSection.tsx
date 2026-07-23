@@ -39,7 +39,7 @@ const contactInfo = [
       </svg>
     ),
     label: "Location",
-    value: "Level 3, 42 Wellness Way\nMelbourne VIC 3000",
+    value: "[Clinic Address, City, State, PIN]",
   },
   {
     icon: (
@@ -48,7 +48,7 @@ const contactInfo = [
       </svg>
     ),
     label: "Phone",
-    value: "(03) 9123 4567",
+    value: "[+91 XXXXX XXXXX]",
   },
   {
     icon: (
@@ -57,7 +57,7 @@ const contactInfo = [
       </svg>
     ),
     label: "Email",
-    value: "hello@innerlightcounselling.com.au",
+    value: "[innerlight_counselling@email.com]",
   },
   {
     icon: (
@@ -66,7 +66,7 @@ const contactInfo = [
       </svg>
     ),
     label: "Working Hours",
-    value: "Mon–Fri: 8am – 7pm\nSat: 9am – 2pm",
+    value: "Mon–Sat: 9am – 7pm\nSun: By appointment",
   },
 ];
 
@@ -121,9 +121,9 @@ export function ContactSection() {
         {/* Heading */}
         <div className="flex flex-col items-center">
           <SectionHeading
-            eyebrow="Contact Us"
+            eyebrow="Contact"
             title="Begin Your Journey Today"
-            subtitle="Ready to take the first step? Fill in the form below or give us a call. We respond to all enquiries within one business day."
+            subtitle="Ready to take the first step? Fill in the form below or reach out directly. I respond to all enquiries personally within one business day."
           />
         </div>
 
@@ -196,7 +196,7 @@ export function ContactSection() {
                 noValidate
               >
                 <h3 className="font-display font-semibold text-xl text-sage-900 mb-1">
-                  Send Us a Message
+                  Send a Message
                 </h3>
 
                 {/* Name + Email row */}
@@ -212,7 +212,7 @@ export function ContactSection() {
                       autoComplete="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Jane Smith"
+                      placeholder="Your Name"
                       aria-required="true"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? "name-error" : undefined}
@@ -236,7 +236,7 @@ export function ContactSection() {
                       autoComplete="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="jane@example.com"
+                      placeholder="your@email.com"
                       aria-required="true"
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? "email-error" : undefined}
@@ -264,7 +264,7 @@ export function ContactSection() {
                       autoComplete="tel"
                       value={form.phone}
                       onChange={handleChange}
-                      placeholder="+61 4XX XXX XXX"
+                      placeholder="+91 XXXXX XXXXX"
                       className={`${inputBase} ${inputNormal}`}
                     />
                   </div>

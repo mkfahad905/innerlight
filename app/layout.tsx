@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { DM_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -9,7 +9,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const playfairDisplay = Playfair_Display({
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["400", "500", "600", "700"],
@@ -20,7 +20,7 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   title: "InnerLight Counselling | Compassionate Mental Health Support",
   description:
-    "InnerLight Counselling offers evidence-based therapy for individuals and couples. Specialising in anxiety, depression, trauma, and life transitions. Book a free consultation today.",
+    "InnerLight Counselling offers evidence-based, one-to-one psychological support. Specialising in anxiety, depression, trauma, and life transitions. Reach out today for a free consultation.",
   keywords: [
     "counselling",
     "therapy",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description:
       "Evidence-based therapy for individuals and couples. Specialising in anxiety, depression, trauma, and life transitions.",
     type: "website",
-    locale: "en_AU",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
@@ -58,7 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${playfairDisplay.variable}`}
+      className={`${dmSans.variable} ${cormorantGaramond.variable}`}
     >
       <body className="min-h-screen flex flex-col antialiased">
         {children}

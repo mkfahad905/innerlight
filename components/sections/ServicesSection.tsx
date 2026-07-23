@@ -13,9 +13,9 @@ export function ServicesSection() {
         {/* Heading */}
         <div className="flex flex-col items-center">
           <SectionHeading
-            eyebrow="Our Services"
-            title="How We Can Help You"
-            subtitle="We offer a range of evidence-based therapeutic services tailored to meet your individual needs. Wherever you are in your journey, we have a path forward."
+            eyebrow="Services"
+            title="How I Can Help You"
+            subtitle="I offer a range of evidence-based therapeutic services tailored to meet your individual needs. Wherever you are in your journey, we will find a path forward together."
           />
         </div>
 
@@ -76,7 +76,9 @@ export function ServicesSection() {
 
                 {/* Learn more link */}
                 <a
-                  href="#faq"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-sage-600 text-sm font-semibold mt-2 group-hover:text-sage-700 transition-colors duration-200"
                   aria-label={`Learn more about ${service.title}`}
                 >
@@ -99,7 +101,7 @@ export function ServicesSection() {
 
         {/* Bottom CTA */}
         <div className="flex justify-center">
-          <Button as="a" href="#faq" variant="outline" size="lg">
+          <Button as="a" href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" variant="outline" size="lg">
             Not sure which service? Let&rsquo;s talk
           </Button>
         </div>

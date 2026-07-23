@@ -90,7 +90,9 @@ export function CTASection() {
           <div className="relative z-10 flex flex-col items-center gap-3">
             <Button
               as="a"
-              href="https://placeholder.com"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="primary"
               size="lg"
               className="bg-white! text-sage-900! hover:bg-beige-100! !px-10"

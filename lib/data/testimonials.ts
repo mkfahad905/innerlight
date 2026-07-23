@@ -4,7 +4,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "1",
     quote:
-      "InnerLight Counselling genuinely changed my life. After just six sessions, I had tools to manage my anxiety that I carry with me every single day. Dr. Sarah's warmth made me feel safe enough to open up for the first time.",
+      "InnerLight Counselling genuinely changed my life. After just six sessions, I had tools to manage my anxiety that I carry with me every single day. The warmth and genuine care I experienced made me feel safe enough to open up for the first time.",
     name: "Emily R.",
     sessionType: "Individual Therapy",
     rating: 5,

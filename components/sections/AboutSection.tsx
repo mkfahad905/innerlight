@@ -39,7 +39,7 @@ export function AboutSection() {
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:mx-0 shadow-[var(--shadow-card-hover)]">
               <Image
                 src="/therapist.png"
-                alt="Dr. Sarah Mitchell, Lead Counsellor at InnerLight Counselling, smiling warmly in her office"
+                alt="Safana Sabeer, Psychologist at InnerLight Counselling, smiling warmly in her office"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -65,7 +65,7 @@ export function AboutSection() {
                   </span>
                 </div>
                 <p className="text-xs text-muted leading-snug">
-                  M.Psych (Clinical) · EMDR Certified
+                  M.A. Clinical Psychology · B.Sc. Psychology
                 </p>
               </div>
             </div>
@@ -80,7 +80,7 @@ export function AboutSection() {
           {/* Right: Text */}
           <div className="order-1 lg:order-2 flex flex-col gap-8">
             <SectionHeading
-              eyebrow="About Us"
+              eyebrow="About"
               title="A Sanctuary for Growth & Healing"
               subtitle="InnerLight Counselling was founded with a single mission: to provide a safe, warm, and professional space where every person can explore their inner world and move toward a life of greater wellbeing."
               align="left"
@@ -88,12 +88,10 @@ export function AboutSection() {
 
             <div className="prose prose-neutral max-w-none text-muted leading-relaxed space-y-4">
               <p>
-                Experienced, fully qualified, and deeply committed to your growth — I bring together expertise across
-                individual therapy, trauma recovery, anxiety, and more.
+                I hold a Master of Arts (M.A.) in Clinical Psychology and a Bachelor of Science (B.Sc.) in Psychology. My academic training has provided me with a strong foundation in psychological assessment, counselling, and evidence-based therapeutic approaches.
               </p>
               <p>
-                Seeking support is an act of courage, not weakness. With years of experience and a genuinely warm approach,
-                I&rsquo;m honoured to walk alongside you on your unique path to healing.
+                Seeking support is an act of courage, not weakness. With a warm, empathetic approach and a commitment to ongoing learning, I&rsquo;m honoured to walk alongside you on your unique path to healing.
               </p>
             </div>
 
@@ -114,7 +112,7 @@ export function AboutSection() {
             </div>
 
             <div>
-              <Button as="a" href="#faq" variant="primary" size="md">
+              <Button as="a" href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" variant="primary" size="md">
                 Start Your Journey
               </Button>
             </div>

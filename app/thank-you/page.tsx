@@ -16,7 +16,7 @@ const checklist = [
 ];
 
 // Placeholder — replace with real WhatsApp link when ready
-const WHATSAPP_URL = "https://wa.me/910000000000";
+const WHATSAPP_URL = "https://wa.me/[91XXXXXXXXXX]";
 
 export default function ThankYouPage() {
   return (
