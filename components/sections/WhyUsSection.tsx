@@ -72,7 +72,7 @@ export function WhyUsSection() {
 
               {/* Number badge */}
               <span
-                className="absolute top-6 right-6 text-xs font-mono text-sage-300"
+                className="absolute top-6 right-6 text-xs font-mono text-sage-600"
                 aria-hidden="true"
               >
                 0{idx + 1}

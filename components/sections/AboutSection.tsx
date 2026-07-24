@@ -42,9 +42,8 @@ export function AboutSection() {
                 src="/img1.jpeg"
                 alt="Safana Sabeer, Psychologist at InnerLight Counselling, smiling warmly in her office"
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 448px, 448px"
                 className="object-cover"
-                priority
               />
               {/* Decorative border frame */}
               <div

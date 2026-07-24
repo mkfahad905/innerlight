@@ -1,7 +1,13 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
+import {
+  LazyMotion,
+  domAnimation,
+  m,
+  useReducedMotion,
+  type HTMLMotionProps,
+} from "framer-motion";
 
 interface ButtonBaseProps {
   variant?: "primary" | "outline" | "ghost";
@@ -65,9 +71,11 @@ export function Button(props: ButtonProps) {
     void _v;
     void _s;
     return (
-      <motion.a {...linkProps} {...motionProps} className={classes}>
-        {children}
-      </motion.a>
+      <LazyMotion features={domAnimation}>
+        <m.a {...linkProps} {...motionProps} className={classes}>
+          {children}
+        </m.a>
+      </LazyMotion>
     );
   }
 
@@ -78,8 +86,10 @@ export function Button(props: ButtonProps) {
   void _v;
   void _s;
   return (
-    <motion.button {...buttonProps} {...motionProps} className={classes}>
-      {children}
-    </motion.button>
+    <LazyMotion features={domAnimation}>
+      <m.button {...buttonProps} {...motionProps} className={classes}>
+        {children}
+      </m.button>
+    </LazyMotion>
   );
 }

@@ -1,13 +1,31 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { AboutSection } from "@/components/sections/AboutSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { JourneyStepsSection } from "@/components/sections/JourneyStepsSection";
-import { WhyUsSection } from "@/components/sections/WhyUsSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { FAQSection } from "@/components/sections/FAQSection";
-import { CTASection } from "@/components/sections/CTASection";
+
+const AboutSection = dynamic(() =>
+  import("@/components/sections/AboutSection").then((mod) => mod.AboutSection),
+);
+const ServicesSection = dynamic(() =>
+  import("@/components/sections/ServicesSection").then((mod) => mod.ServicesSection),
+);
+const JourneyStepsSection = dynamic(() =>
+  import("@/components/sections/JourneyStepsSection").then((mod) => mod.JourneyStepsSection),
+);
+const WhyUsSection = dynamic(() =>
+  import("@/components/sections/WhyUsSection").then((mod) => mod.WhyUsSection),
+);
+const TestimonialsSection = dynamic(() =>
+  import("@/components/sections/TestimonialsSection").then((mod) => mod.TestimonialsSection),
+);
+const FAQSection = dynamic(() =>
+  import("@/components/sections/FAQSection").then((mod) => mod.FAQSection),
+);
+const CTASection = dynamic(() =>
+  import("@/components/sections/CTASection").then((mod) => mod.CTASection),
+);
+const Footer = dynamic(() =>
+  import("@/components/layout/Footer").then((mod) => mod.Footer),
+);
 
 export default function Home() {
   return (

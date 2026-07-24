@@ -1,8 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+  m,
+  useReducedMotion,
+} from "framer-motion";
 import { Button } from "@/components/ui/Button";
 
 const navLinks = [
@@ -70,8 +77,8 @@ export function Navbar() {
   }, []);
 
   return (
-    <>
-      <motion.header
+    <LazyMotion features={domAnimation}>
+      <m.header
         role="banner"
         initial={reduceMotion ? false : { opacity: 0, y: -10 }}
         animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -87,24 +94,27 @@ export function Navbar() {
           className="container-custom h-20 flex items-center justify-between"
         >
           {/* Logo */}
-          <motion.a
-            href="#"
-            aria-label="InnerLight Counselling — go to homepage"
-            className="flex items-center gap-2.5 flex-shrink-0 group"
+          <m.div
+            className="flex flex-shrink-0"
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={reduceMotion ? undefined : { opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.12 }}
           >
-            <Image
-              src={scrolled ? "/innerlight-logo-light.svg" : "/innerlight-logo-dark.svg"}
-              alt=""
-              width={200}
-              height={61}
-              className="w-[200px] h-auto"
-              priority
-              aria-hidden="true"
-            />
-          </motion.a>
+            <Link
+              href="/"
+              aria-label="InnerLight Counselling — go to homepage"
+              className="flex items-center gap-2.5 group"
+            >
+              <Image
+                src={scrolled ? "/innerlight-logo-light.svg" : "/innerlight-logo-dark.svg"}
+                alt=""
+                width={200}
+                height={61}
+                className="w-[200px] h-auto"
+                aria-hidden="true"
+              />
+            </Link>
+          </m.div>
 
           {/* Desktop nav links */}
           <ul className="hidden lg:flex items-center gap-1" role="list">
@@ -169,12 +179,12 @@ export function Navbar() {
             />
           </button>
         </nav>
-      </motion.header>
+      </m.header>
 
       {/* Mobile menu drawer */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
@@ -186,7 +196,7 @@ export function Navbar() {
             transition={{ duration: 0.25 }}
           >
             {/* Backdrop */}
-            <motion.div
+            <m.div
               className="absolute inset-0 bg-[rgba(25,25,25,0.25)] backdrop-blur-[6px]"
               onClick={() => setMobileOpen(false)}
               aria-hidden="true"
@@ -197,7 +207,7 @@ export function Navbar() {
             />
 
             {/* Drawer */}
-            <motion.div
+            <m.div
               className="absolute right-0 top-0 flex h-full w-72 max-w-[88vw] flex-col overflow-hidden rounded-l-[2rem] border-l border-white/70 bg-[rgba(247,244,238,0.92)] shadow-[0_24px_80px_-24px_rgba(45,74,62,0.45)] backdrop-blur-[20px]"
               initial={reduceMotion ? false : { opacity: 0, x: 64 }}
               animate={reduceMotion ? undefined : { opacity: 1, x: 0 }}
@@ -205,8 +215,8 @@ export function Navbar() {
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="h-20 flex items-center justify-between gap-4 px-6 border-b border-sage-200/50">
-                <a
-                  href="#"
+                <Link
+                  href="/"
                   aria-label="InnerLight Counselling homepage"
                   className="flex min-w-0 items-center"
                   onClick={() => setMobileOpen(false)}
@@ -219,7 +229,7 @@ export function Navbar() {
                     className="h-auto w-[170px] max-w-full"
                     aria-hidden="true"
                   />
-                </a>
+                </Link>
                 <button
                   aria-label="Close menu"
                   onClick={() => setMobileOpen(false)}
@@ -238,7 +248,7 @@ export function Navbar() {
               </div>
 
               <nav aria-label="Mobile navigation" className="flex-1 overflow-y-auto px-5 py-6">
-                <motion.ul
+                <m.ul
                   className="flex flex-col gap-2"
                   role="list"
                   initial={reduceMotion ? false : "hidden"}
@@ -257,7 +267,7 @@ export function Navbar() {
                     const isActive = activeHref === link.href;
 
                     return (
-                      <motion.li
+                      <m.li
                         key={link.href}
                         variants={{
                           hidden: { opacity: 0, x: 20 },
@@ -282,10 +292,10 @@ export function Navbar() {
                         >
                           {link.label}
                         </a>
-                      </motion.li>
+                      </m.li>
                     );
                   })}
-                </motion.ul>
+                </m.ul>
               </nav>
 
               <div className="p-6 border-t border-sage-200/50">
@@ -303,10 +313,10 @@ export function Navbar() {
                   Start Your Journey
                 </Button>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </>
+    </LazyMotion>
   );
 }

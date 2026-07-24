@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -21,35 +21,35 @@ export function SectionHeading({
   const reduceMotion = useReducedMotion();
 
   return (
-    <motion.div
-      className={`flex flex-col gap-3 ${alignClass}`}
-      initial={reduceMotion ? false : "hidden"}
-      whileInView={reduceMotion ? undefined : "visible"}
-      viewport={{ once: true, amount: 0.5 }}
-      variants={{
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: 0.1,
+    <LazyMotion features={domAnimation}>
+      <m.div
+        className={`flex flex-col gap-3 ${alignClass}`}
+        initial={reduceMotion ? false : "hidden"}
+        whileInView={reduceMotion ? undefined : "visible"}
+        viewport={{ once: true, amount: 0.5 }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.1,
+            },
           },
-        },
-      }}
-    >
+        }}
+      >
       {eyebrow && (
-        <motion.span
+        <m.span
           className="inline-flex items-center gap-2 text-sage-600 text-sm font-semibold uppercase tracking-widest"
-          aria-hidden="false"
           variants={{
             hidden: { opacity: 0, y: 12 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
           }}
         >
-          <span className="inline-block w-8 h-0.5 bg-sage-400 rounded-full" />
+          <span className="inline-block w-8 h-0.5 bg-sage-400 rounded-full" aria-hidden="true" />
           {eyebrow}
-          <span className="inline-block w-8 h-0.5 bg-sage-400 rounded-full" />
-        </motion.span>
+          <span className="inline-block w-8 h-0.5 bg-sage-400 rounded-full" aria-hidden="true" />
+        </m.span>
       )}
-      <motion.h2
+      <m.h2
         className={`font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-sage-900 leading-tight ${titleClassName}`}
         variants={{
           hidden: { opacity: 0, y: 14 },
@@ -57,9 +57,9 @@ export function SectionHeading({
         }}
       >
         {title}
-      </motion.h2>
+      </m.h2>
       {subtitle && (
-        <motion.p
+        <m.p
           className="text-lg text-muted max-w-2xl leading-relaxed mt-1"
           variants={{
             hidden: { opacity: 0, y: 12 },
@@ -67,8 +67,9 @@ export function SectionHeading({
           }}
         >
           {subtitle}
-        </motion.p>
+        </m.p>
       )}
-    </motion.div>
+      </m.div>
+    </LazyMotion>
   );
 }

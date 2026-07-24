@@ -1,10 +1,26 @@
 import type { Metadata } from "next";
 import { ThankYouConfirmation } from "@/components/ThankYouConfirmation";
+import { siteName, siteUrl } from "@/lib/seo";
+
+const thankYouDescription =
+  "Your intake form has been received. I'll personally review your responses and reach out on WhatsApp within 24 hours.";
 
 export const metadata: Metadata = {
-  title: "Thank You | InnerLight Counselling",
-  description:
-    "Your intake form has been received. I'll personally review your responses and reach out on WhatsApp within 24 hours.",
+  title: {
+    absolute: "Thank You | InnerLight Counselling",
+  },
+  description: thankYouDescription,
+  alternates: { canonical: "/thank-you" },
+  openGraph: {
+    title: "Thank You | InnerLight Counselling",
+    description: thankYouDescription,
+    ...(siteUrl ? { url: "/thank-you" } : {}),
+    siteName,
+  },
+  twitter: {
+    title: "Thank You | InnerLight Counselling",
+    description: thankYouDescription,
+  },
   robots: { index: false, follow: false },
 };
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { LazyMotion, domAnimation, m, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -57,7 +57,7 @@ function TherapistCard() {
 
   return (
     // Outer wrapper — no gap; card will overlap portrait via negative margin
-    <motion.div
+    <m.div
       className="flex flex-col items-center w-full max-w-xs mx-auto lg:mx-0"
       initial={reduceMotion ? false : { opacity: 0, y: 16 }}
       animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -67,11 +67,12 @@ function TherapistCard() {
       <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl ring-2 ring-white/20">
         <Image
           src="/img1.jpeg"
-          alt="InnerLight Counselling therapist portrait"
+          alt="Safana Sabeer, psychologist at InnerLight Counselling"
           fill
-          sizes="(max-width: 1024px) 80vw, 288px"
+          sizes="(max-width: 640px) 80vw, (max-width: 1024px) 320px, (max-width: 1280px) 288px, 320px"
           className="object-cover object-top"
           priority
+          fetchPriority="high"
         />
         {/* Gradient overlay — deeper so the card sits flush against it */}
         <div
@@ -118,7 +119,7 @@ function TherapistCard() {
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -136,11 +137,12 @@ export function HeroSection() {
   ];
 
   return (
-    <section
-      id="hero"
-      aria-label="Hero"
-      className="relative min-h-0 flex items-center overflow-hidden lg:min-h-[80vh]"
-    >
+    <LazyMotion features={domAnimation}>
+      <section
+        id="hero"
+        aria-label="Hero"
+        className="relative min-h-0 flex items-center overflow-hidden lg:min-h-[80vh]"
+      >
       {/* Background gradient (unchanged) */}
       <div
         className="absolute inset-0"
@@ -158,7 +160,7 @@ export function HeroSection() {
         {/* Left: Headline + copy + CTAs */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-7">
           {/* Eyebrow badge (unchanged) */}
-          <motion.span
+          <m.span
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm text-white font-medium"
             initial={reduceMotion ? false : { opacity: 0, y: 10 }}
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -169,10 +171,10 @@ export function HeroSection() {
               aria-hidden="true"
             />
             Welcoming New Clients
-          </motion.span>
+          </m.span>
 
           {/* Headline — brand identity restored */}
-          <motion.h1
+          <m.h1
             className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] font-semibold text-white leading-tight"
             initial={reduceMotion ? false : "hidden"}
             animate={reduceMotion ? undefined : "visible"}
@@ -182,7 +184,7 @@ export function HeroSection() {
             }}
           >
             {headingWords.map((word, index) => (
-              <motion.span
+              <m.span
                 key={`${word.text}-${index}`}
                 className={`inline-block ${word.accent ? "italic text-sage-200" : ""}`}
                 variants={{
@@ -202,12 +204,12 @@ export function HeroSection() {
                   </>
                 )}
                 {index !== 3 && index < headingWords.length - 1 ? "\u00a0" : ""}
-              </motion.span>
+              </m.span>
             ))}
-          </motion.h1>
+          </m.h1>
 
           {/* Subtitle — warm, empathetic, professional */}
-          <motion.p
+          <m.p
             className="text-lg sm:text-xl text-white/80 max-w-lg leading-relaxed"
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -217,10 +219,10 @@ export function HeroSection() {
             exhausted, or simply need someone to talk to — you&rsquo;re welcome
             here. Together, we&rsquo;ll work toward clarity, resilience, and
             lasting emotional wellbeing.
-          </motion.p>
+          </m.p>
 
           {/* CTAs (unchanged markup, same classes) */}
-          <motion.div
+          <m.div
             className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
             initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.98 }}
             animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
@@ -258,7 +260,7 @@ export function HeroSection() {
             >
               Learn More
             </Button>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Right: Therapist portrait + info card */}
@@ -281,6 +283,7 @@ export function HeroSection() {
           />
         </svg>
       </div>
-    </section>
+      </section>
+    </LazyMotion>
   );
 }
