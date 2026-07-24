@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const footerLinks = {
   Services: [
     { label: "Individual Therapy", href: "#services" },
@@ -63,17 +65,14 @@ export function Footer() {
         {/* Brand column */}
         <div className="lg:col-span-1 flex flex-col gap-5">
           <a href="#" aria-label="InnerLight Counselling homepage" className="flex items-center gap-2.5 w-fit">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="18" cy="18" r="18" fill="#7A9E87" opacity="0.25" />
-              <path d="M18 8C18 8 10 13 10 20C10 24.4 13.6 28 18 28C22.4 28 26 24.4 26 20C26 13 18 8 18 8Z" fill="#7A9E87" />
-              <path d="M18 8L18 28" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-              <path d="M18 22C18 22 14 18 12 16" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-              <path d="M18 18C18 18 21 15 23 14" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-            <div className="flex flex-col leading-none">
-              <span className="font-display font-semibold text-lg text-white">InnerLight</span>
-              <span className="text-xs tracking-widest uppercase text-sage-300">Counselling</span>
-            </div>
+            <Image
+              src="/innerlight-logo-dark.svg"
+              alt=""
+              width={190}
+              height={58}
+              className="w-[190px] h-auto"
+              aria-hidden="true"
+            />
           </a>
           <p className="text-sage-300 text-sm leading-relaxed max-w-xs">
             A safe, compassionate space to explore your inner world and move toward lasting emotional wellbeing.

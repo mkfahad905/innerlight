@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { MotionDiv, MotionSection, MotionStagger, MotionStaggerItem } from "@/components/ui/Motion";
 
 const values = [
   {
@@ -27,18 +28,18 @@ const values = [
 
 export function AboutSection() {
   return (
-    <section
+    <MotionSection
       id="about"
       aria-label="About InnerLight Counselling"
-      className="py-24 lg:py-32 bg-beige-100"
+      className="py-20 lg:py-32 bg-beige-100"
     >
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Image */}
-          <div className="relative order-2 lg:order-1">
+          <MotionDiv className="relative order-2 lg:order-1">
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-md mx-auto lg:mx-0 shadow-[var(--shadow-card-hover)]">
               <Image
-                src="/therapist.png"
+                src="/img1.jpeg"
                 alt="Safana Sabeer, Psychologist at InnerLight Counselling, smiling warmly in her office"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -75,10 +76,10 @@ export function AboutSection() {
               className="absolute -top-6 -left-6 w-48 h-48 rounded-full bg-sage-100 -z-10"
               aria-hidden="true"
             />
-          </div>
+          </MotionDiv>
 
           {/* Right: Text */}
-          <div className="order-1 lg:order-2 flex flex-col gap-8">
+          <MotionDiv className="order-1 lg:order-2 flex flex-col gap-8">
             <SectionHeading
               eyebrow="About"
               title="A Sanctuary for Growth & Healing"
@@ -88,7 +89,7 @@ export function AboutSection() {
 
             <div className="prose prose-neutral max-w-none text-muted leading-relaxed space-y-4">
               <p>
-                I hold a Master of Arts (M.A.) in Clinical Psychology and a Bachelor of Science (B.Sc.) in Psychology. My academic training has provided me with a strong foundation in psychological assessment, counselling, and evidence-based therapeutic approaches.
+                I hold a Master of Arts (M.A.) in Clinical Psychology and a Bachelor of Science (B.Sc.) in Psychology. My academic training has provided me with a strong foundation in psychology, counseling skills, and evidence-based therapeutic approaches. I am committed to providing ethical, empathetic, and client-centered psychological support while continually enhancing my knowledge and professional skills through ongoing learning and professional development.
               </p>
               <p>
                 Seeking support is an act of courage, not weakness. With a warm, empathetic approach and a commitment to ongoing learning, I&rsquo;m honoured to walk alongside you on your unique path to healing.
@@ -96,9 +97,9 @@ export function AboutSection() {
             </div>
 
             {/* Values grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <MotionStagger className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {values.map((v) => (
-                <div
+                <MotionStaggerItem
                   key={v.title}
                   className="bg-white rounded-2xl p-4 flex flex-col gap-2 border border-beige-200 hover:border-sage-300 hover:shadow-[var(--shadow-card)] transition-all duration-300"
                 >
@@ -107,18 +108,18 @@ export function AboutSection() {
                   </span>
                   <h3 className="font-semibold text-sage-900 text-sm">{v.title}</h3>
                   <p className="text-xs text-muted leading-relaxed">{v.desc}</p>
-                </div>
+                </MotionStaggerItem>
               ))}
-            </div>
+            </MotionStagger>
 
             <div>
-              <Button as="a" href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" variant="primary" size="md">
+              <Button as="a" href="/start-your-journey" variant="primary" size="md">
                 Start Your Journey
               </Button>
             </div>
-          </div>
+          </MotionDiv>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

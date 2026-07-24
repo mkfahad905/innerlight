@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { MotionAnchor, MotionDiv, MotionSection, MotionStagger, MotionStaggerItem } from "@/components/ui/Motion";
 
 const reasons = [
   {
@@ -41,10 +42,10 @@ const reasons = [
 
 export function WhyUsSection() {
   return (
-    <section
+    <MotionSection
       id="why-us"
       aria-label="Why Choose InnerLight Counselling"
-      className="py-24 lg:py-32"
+      className="py-20 lg:py-32"
       style={{ background: "linear-gradient(180deg, #F5F0E8 0%, #EDE8DC 100%)" }}
     >
       <div className="container-custom flex flex-col gap-16">
@@ -58,9 +59,9 @@ export function WhyUsSection() {
         </div>
 
         {/* Reasons grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <MotionStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((reason, idx) => (
-            <div
+            <MotionStaggerItem
               key={reason.title}
               className="group relative bg-white rounded-3xl p-7 border border-beige-200 hover:border-sage-300 transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-1 flex flex-col gap-4"
             >
@@ -90,12 +91,12 @@ export function WhyUsSection() {
                 className="absolute bottom-0 left-6 right-6 h-0.5 rounded-full bg-gradient-to-r from-sage-300 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
                 aria-hidden="true"
               />
-            </div>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStagger>
 
         {/* Bottom strip */}
-        <div className="bg-sage-900 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <MotionDiv className="bg-sage-900 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="text-center sm:text-left">
             <p className="font-display text-2xl font-semibold text-white">
               Ready to take the first step?
@@ -104,10 +105,8 @@ export function WhyUsSection() {
               Your free 20-minute consultation is just one click away.
             </p>
           </div>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
-            target="_blank"
-            rel="noopener noreferrer"
+          <MotionAnchor
+            href="/start-your-journey"
             className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-sage-900 font-semibold px-7 py-3.5 rounded-full hover:bg-beige-100 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
           >
             Book Free Consultation
@@ -121,9 +120,9 @@ export function WhyUsSection() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
-        </div>
+          </MotionAnchor>
+        </MotionDiv>
       </div>
-    </section>
+    </MotionSection>
   );
 }

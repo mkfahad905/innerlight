@@ -1,4 +1,7 @@
-import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+"use client";
+
+import type { ReactNode } from "react";
+import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
 
 interface ButtonBaseProps {
   variant?: "primary" | "outline" | "ghost";
@@ -8,15 +11,15 @@ interface ButtonBaseProps {
 }
 
 type ButtonAsButton = ButtonBaseProps &
-  ButtonHTMLAttributes<HTMLButtonElement> & { as?: "button"; href?: never };
+  Omit<HTMLMotionProps<"button">, "children"> & { as?: "button"; href?: never };
 
 type ButtonAsLink = ButtonBaseProps &
-  AnchorHTMLAttributes<HTMLAnchorElement> & { as: "a"; href: string };
+  Omit<HTMLMotionProps<"a">, "children"> & { as: "a"; href: string };
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const baseClasses =
-  "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
+  "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 
 const variantClasses = {
   primary:
@@ -34,13 +37,20 @@ const sizeClasses = {
 };
 
 export function Button(props: ButtonProps) {
+  const reduceMotion = useReducedMotion();
   const {
     variant = "primary",
     size = "md",
     children,
     className = "",
-    ...rest
   } = props;
+  const motionProps = reduceMotion
+    ? {}
+    : {
+        whileHover: { y: -2, scale: 1.02 },
+        whileTap: { scale: 0.98 },
+        transition: { duration: 0.2 },
+      };
 
   const classes = [
     baseClasses,
@@ -51,18 +61,25 @@ export function Button(props: ButtonProps) {
 
   if (props.as === "a") {
     const { as: _as, variant: _v, size: _s, ...linkProps } = props;
+    void _as;
+    void _v;
+    void _s;
     return (
-      <a {...linkProps} className={classes}>
+      <motion.a {...linkProps} {...motionProps} className={classes}>
         {children}
-      </a>
+      </motion.a>
     );
   }
 
   const { as: _as, href: _href, variant: _v, size: _s, ...buttonProps } =
     props as ButtonAsButton & { href?: never };
+  void _as;
+  void _href;
+  void _v;
+  void _s;
   return (
-    <button {...buttonProps} className={classes}>
+    <motion.button {...buttonProps} {...motionProps} className={classes}>
       {children}
-    </button>
+    </motion.button>
   );
 }

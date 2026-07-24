@@ -1,13 +1,14 @@
 import { faqs } from "@/lib/data/faqs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Accordion } from "@/components/ui/Accordion";
+import { MotionDiv, MotionSection } from "@/components/ui/Motion";
 
 export function FAQSection() {
   return (
-    <section
+    <MotionSection
       id="faq"
       aria-label="Frequently Asked Questions"
-      className="py-24 lg:py-32 bg-beige-100"
+      className="py-20 lg:py-32 bg-beige-100"
     >
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start">
@@ -21,7 +22,7 @@ export function FAQSection() {
             />
 
             {/* Still have questions card */}
-            <div className="bg-sage-900 rounded-3xl p-6 flex flex-col gap-4">
+            <MotionDiv className="bg-sage-900 rounded-3xl p-6 flex flex-col gap-4">
               <div
                 className="w-12 h-12 rounded-2xl bg-sage-700 flex items-center justify-center text-2xl"
                 aria-hidden="true"
@@ -58,7 +59,7 @@ export function FAQSection() {
                   />
                 </svg>
               </a>
-            </div>
+            </MotionDiv>
           </div>
 
           {/* Right: Accordion */}
@@ -67,6 +68,6 @@ export function FAQSection() {
           </div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

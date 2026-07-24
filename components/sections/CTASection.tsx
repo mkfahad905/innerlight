@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { MotionDiv, MotionSection, MotionStagger, MotionStaggerItem } from "@/components/ui/Motion";
 
 const trustBadges = [
   { label: "Confidential" },
@@ -9,10 +10,10 @@ const trustBadges = [
 
 export function CTASection() {
   return (
-    <section
+    <MotionSection
       id="start-journey"
       aria-label="Start Your Journey"
-      className="py-24 lg:py-32 bg-beige-100"
+      className="py-20 lg:py-32 bg-beige-100"
     >
       <div className="container-custom">
         <div
@@ -40,15 +41,15 @@ export function CTASection() {
           />
 
           {/* Leaf icon */}
-          <span
+          <MotionDiv
             className="relative z-10 w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-3xl backdrop-blur-sm"
             aria-hidden="true"
           >
             🌿
-          </span>
+          </MotionDiv>
 
           {/* Heading */}
-          <div className="relative z-10 flex flex-col items-center gap-5 max-w-2xl">
+          <MotionDiv className="relative z-10 flex flex-col items-center gap-5 max-w-2xl">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
               Ready to Take the{" "}
               <span className="italic text-sage-200">First Step?</span>
@@ -58,12 +59,12 @@ export function CTASection() {
               confidential intake form, and I&rsquo;ll personally review your
               responses before reaching out on WhatsApp.
             </p>
-          </div>
+          </MotionDiv>
 
           {/* Trust badges */}
-          <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <MotionStagger className="relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             {trustBadges.map((badge) => (
-              <span
+              <MotionStaggerItem
                 key={badge.label}
                 className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-white"
               >
@@ -82,17 +83,15 @@ export function CTASection() {
                   />
                 </svg>
                 {badge.label}
-              </span>
+              </MotionStaggerItem>
             ))}
-          </div>
+          </MotionStagger>
 
           {/* CTA button */}
-          <div className="relative z-10 flex flex-col items-center gap-3">
+          <MotionDiv className="relative z-10 flex flex-col items-center gap-3">
             <Button
               as="a"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/start-your-journey"
               variant="primary"
               size="lg"
               className="bg-white! text-sage-900! hover:bg-beige-100! !px-10"
@@ -116,9 +115,9 @@ export function CTASection() {
             <p className="text-sage-300 text-xs">
               Takes less than 5 minutes &middot; Completely private
             </p>
-          </div>
+          </MotionDiv>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 }

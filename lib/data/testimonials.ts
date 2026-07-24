@@ -4,55 +4,28 @@ export const testimonials: Testimonial[] = [
   {
     id: "1",
     quote:
-      "InnerLight Counselling genuinely changed my life. After just six sessions, I had tools to manage my anxiety that I carry with me every single day. The warmth and genuine care I experienced made me feel safe enough to open up for the first time.",
-    name: "Emily R.",
-    sessionType: "Individual Therapy",
+      "Today's session was really helpful. I had always believed I would never heal, but now I genuinely feel much better. Honestly, I never felt judged. She spoke to me like a close friend, which made it easy to open up and share everything freely. I was worried that online sessions would feel awkward, but instead I felt completely comfortable. Thank you so much.",
+    name: "Anonymous Client",
+    sessionType: "Online Session",
     rating: 5,
-    initials: "ER",
+    initials: "AC",
   },
   {
     id: "2",
     quote:
-      "My partner and I were at our wit's end. The couples counselling sessions gave us a new language to talk to each other. We're closer now than we've ever been. Truly transformative work.",
-    name: "James & Priya T.",
-    sessionType: "Couples Counselling",
+      "My first session was a very positive experience. I felt understood, supported, and never judged. She gave me enough time and space to talk openly about my depression, and I truly felt heard.",
+    name: "Anonymous Client",
+    sessionType: "Individual Session",
     rating: 5,
-    initials: "JP",
+    initials: "AC",
   },
   {
     id: "3",
     quote:
-      "I was sceptical about online therapy, but the experience was just as personal and effective as I could have hoped. The flexibility meant I actually stuck with it, and the results speak for themselves.",
-    name: "Michael K.",
-    sessionType: "Anxiety & Stress",
+      "It was a great experience. After sharing everything openly, I felt lighter and relieved. Thank you so much.",
+    name: "Anonymous Client",
+    sessionType: "Individual Session",
     rating: 5,
-    initials: "MK",
-  },
-  {
-    id: "4",
-    quote:
-      "After losing my father, I felt completely lost. The grief support I received here was incredibly gentle and effective. I was helped to honour his memory while still moving forward in life.",
-    name: "Sophia L.",
-    sessionType: "Life Transitions",
-    rating: 5,
-    initials: "SL",
-  },
-  {
-    id: "5",
-    quote:
-      "The trauma-focused sessions were life-altering. I finally feel free from the weight I'd been carrying for years. The EMDR work was challenging but incredibly powerful with the right support.",
-    name: "Daniel M.",
-    sessionType: "Trauma Recovery",
-    rating: 5,
-    initials: "DM",
-  },
-  {
-    id: "6",
-    quote:
-      "I appreciated that every session felt tailored to me, not a one-size-fits-all approach. My depression lifted gradually, and I found joy in things I'd forgotten I loved. Highly recommend.",
-    name: "Aisha W.",
-    sessionType: "Depression Support",
-    rating: 5,
-    initials: "AW",
+    initials: "AC",
   },
 ];

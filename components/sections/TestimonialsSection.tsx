@@ -1,5 +1,6 @@
 import { testimonials } from "@/lib/data/testimonials";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { MotionSection, MotionStagger, MotionStaggerItem } from "@/components/ui/Motion";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -21,10 +22,10 @@ function StarRating({ rating }: { rating: number }) {
 
 export function TestimonialsSection() {
   return (
-    <section
+    <MotionSection
       id="testimonials"
       aria-label="Client Testimonials"
-      className="py-24 lg:py-32 bg-beige-50 overflow-hidden"
+      className="py-20 lg:py-32 bg-beige-50 overflow-hidden"
     >
       <div className="container-custom flex flex-col gap-14">
         {/* Heading */}
@@ -37,10 +38,10 @@ export function TestimonialsSection() {
         </div>
 
         {/* Two-row masonry-style grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <MotionStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map((testimonial, idx) => (
+            <MotionStaggerItem key={testimonial.id}>
             <article
-              key={testimonial.id}
               className={`group bg-white rounded-3xl p-7 border border-beige-200 hover:border-sage-300 hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 flex flex-col gap-5 ${
                 // Offset every other card slightly for visual interest
                 idx % 2 === 1 ? "lg:translate-y-6" : ""
@@ -79,23 +80,24 @@ export function TestimonialsSection() {
                 </div>
               </footer>
             </article>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStagger>
 
         {/* Trust summary bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 py-6 border-y border-beige-200">
+        <MotionStagger className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 py-6 border-y border-beige-200">
           {[
             { value: "98%", label: "Client Satisfaction" },
             { value: "100+", label: "Clients Supported" },
             { value: "4.9★", label: "Average Rating" },
           ].map((item) => (
-            <div key={item.label} className="flex flex-col items-center">
+            <MotionStaggerItem key={item.label} className="flex flex-col items-center">
               <span className="font-display text-3xl font-semibold text-sage-900">{item.value}</span>
               <span className="text-muted text-sm mt-0.5">{item.label}</span>
-            </div>
+            </MotionStaggerItem>
           ))}
-        </div>
+        </MotionStagger>
       </div>
-    </section>
+    </MotionSection>
   );
 }

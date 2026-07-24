@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 
 const navLinks = [
@@ -9,19 +11,53 @@ const navLinks = [
   { href: "#why-us", label: "Why Us" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#faq", label: "FAQ" },
-  { href: "https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor", label: "Start Journey" },
+  { href: "/start-your-journey", label: "Start Journey" },
 ];
+
+const SCROLL_THRESHOLD = 48;
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#about");
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    let frameId: number | null = null;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
+      if (frameId !== null) return;
+
+      frameId = window.requestAnimationFrame(() => {
+        setScrolled((current) => {
+          const next = window.scrollY > SCROLL_THRESHOLD;
+          return current === next ? current : next;
+        });
+        frameId = null;
+      });
     };
+
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
+  }, []);
+
+  useEffect(() => {
+    const updateActiveHref = () => {
+      if (window.location.pathname === "/start-your-journey") {
+        setActiveHref("/start-your-journey");
+        return;
+      }
+
+      setActiveHref(window.location.hash || "#about");
+    };
+
+    updateActiveHref();
+    window.addEventListener("hashchange", updateActiveHref);
+    return () => window.removeEventListener("hashchange", updateActiveHref);
   }, []);
 
   // Close mobile menu on resize to desktop
@@ -35,12 +71,15 @@ export function Navbar() {
 
   return (
     <>
-      <header
+      <motion.header
         role="banner"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        initial={reduceMotion ? false : { opacity: 0, y: -10 }}
+        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-beige-200"
-            : "bg-transparent"
+            ? "bg-beige-50/92 backdrop-blur-md shadow-[0_8px_28px_-24px_rgba(45,74,62,0.42)] border-b border-beige-200/80"
+            : "border-b border-transparent bg-transparent shadow-none backdrop-blur-0"
         }`}
       >
         <nav
@@ -48,63 +87,24 @@ export function Navbar() {
           className="container-custom h-20 flex items-center justify-between"
         >
           {/* Logo */}
-          <a
+          <motion.a
             href="#"
             aria-label="InnerLight Counselling — go to homepage"
             className="flex items-center gap-2.5 flex-shrink-0 group"
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={reduceMotion ? undefined : { opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
           >
-            {/* Inline SVG leaf/light icon */}
-            <span className="relative w-9 h-9 flex items-center justify-center">
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <circle cx="18" cy="18" r="18" fill="#7A9E87" opacity="0.15" />
-                <path
-                  d="M18 8C18 8 10 13 10 20C10 24.4 13.6 28 18 28C22.4 28 26 24.4 26 20C26 13 18 8 18 8Z"
-                  fill="#7A9E87"
-                />
-                <path
-                  d="M18 8L18 28"
-                  stroke="#2D4A3E"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M18 22C18 22 14 18 12 16"
-                  stroke="#2D4A3E"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M18 18C18 18 21 15 23 14"
-                  stroke="#2D4A3E"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-            <span className="flex flex-col leading-none">
-              <span
-                className={`font-display font-semibold text-lg transition-colors duration-300 ${
-                  scrolled ? "text-sage-900" : "text-white"
-                } group-hover:text-sage-500`}
-              >
-                InnerLight
-              </span>
-              <span
-                className={`text-xs tracking-widest uppercase transition-colors duration-300 ${
-                  scrolled ? "text-sage-500" : "text-sage-200"
-                }`}
-              >
-                Counselling
-              </span>
-            </span>
-          </a>
+            <Image
+              src={scrolled ? "/innerlight-logo-light.svg" : "/innerlight-logo-dark.svg"}
+              alt=""
+              width={200}
+              height={61}
+              className="w-[200px] h-auto"
+              priority
+              aria-hidden="true"
+            />
+          </motion.a>
 
           {/* Desktop nav links */}
           <ul className="hidden lg:flex items-center gap-1" role="list">
@@ -112,8 +112,10 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:bg-sage-100 hover:text-sage-700 ${
-                    scrolled ? "text-sage-800" : "text-white hover:text-sage-900"
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    scrolled
+                      ? "text-sage-800 hover:bg-sage-100 hover:text-sage-700"
+                      : "text-white/92 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -126,12 +128,14 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Button
               as="a"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/start-your-journey"
               variant="primary"
               size="sm"
-              className="!px-6 !py-2.5"
+              className={`!px-6 !py-2.5 ${
+                scrolled
+                  ? ""
+                  : "border border-white/70 bg-white/10! text-white! shadow-none backdrop-blur-sm hover:bg-white! hover:text-sage-900! hover:shadow-[0_10px_28px_-18px_rgba(255,255,255,0.85)]"
+              }`}
             >
               Start Your Journey
             </Button>
@@ -165,78 +169,144 @@ export function Navbar() {
             />
           </button>
         </nav>
-      </header>
+      </motion.header>
 
       {/* Mobile menu drawer */}
-      <div
-        id="mobile-menu"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-          mobileOpen ? "visible opacity-100" : "invisible opacity-0"
-        }`}
-      >
-        {/* Backdrop */}
-        <div
-          className="absolute inset-0 bg-sage-900/40 backdrop-blur-sm"
-          onClick={() => setMobileOpen(false)}
-          aria-hidden="true"
-        />
-        {/* Drawer */}
-        <div
-          className={`absolute top-0 right-0 h-full w-72 bg-white shadow-2xl transition-transform duration-300 flex flex-col ${
-            mobileOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="h-20 flex items-center justify-end px-6 border-b border-beige-200">
-            <button
-              aria-label="Close menu"
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            className="fixed inset-0 z-40 lg:hidden"
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={reduceMotion ? undefined : { opacity: 1 }}
+            exit={reduceMotion ? undefined : { opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-black/25 backdrop-blur-[6px]"
               onClick={() => setMobileOpen(false)}
-              className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-beige-100 transition-colors text-sage-800"
+              aria-hidden="true"
+              initial={reduceMotion ? false : { opacity: 0 }}
+              animate={reduceMotion ? undefined : { opacity: 1 }}
+              exit={reduceMotion ? undefined : { opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              className="absolute right-0 top-0 flex h-full w-72 max-w-[88vw] flex-col overflow-hidden rounded-l-[2rem] border-l border-white/70 bg-[rgba(247,244,238,0.90)] shadow-[0_24px_80px_-24px_rgba(45,74,62,0.45)] backdrop-blur-[20px]"
+              initial={reduceMotion ? false : { opacity: 0, x: 64 }}
+              animate={reduceMotion ? undefined : { opacity: 1, x: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, x: 64 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-          <nav aria-label="Mobile navigation" className="flex-1 overflow-y-auto p-6">
-            <ul className="flex flex-col gap-1" role="list">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center px-4 py-3 rounded-xl text-sage-800 font-medium hover:bg-sage-50 hover:text-sage-600 transition-colors duration-200"
+              <div className="h-20 flex items-center justify-between gap-4 px-6 border-b border-sage-200/50">
+                <a
+                  href="#"
+                  aria-label="InnerLight Counselling homepage"
+                  className="flex min-w-0 items-center"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <Image
+                    src="/innerlight-logo-light.svg"
+                    alt=""
+                    width={170}
+                    height={52}
+                    className="h-auto w-[170px] max-w-full"
+                    aria-hidden="true"
+                  />
+                </a>
+                <button
+                  aria-label="Close menu"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-12 h-12 flex flex-shrink-0 items-center justify-center rounded-2xl text-sage-800 transition-colors duration-200 hover:bg-sage-100"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
                   >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="p-6 border-t border-beige-200">
-            <Button
-              as="a"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="primary"
-              size="md"
-              className="w-full"
-              onClick={() => setMobileOpen(false)}
-            >
-              Start Your Journey
-            </Button>
-          </div>
-        </div>
-      </div>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <nav aria-label="Mobile navigation" className="flex-1 overflow-y-auto px-5 py-6">
+                <motion.ul
+                  className="flex flex-col gap-2"
+                  role="list"
+                  initial={reduceMotion ? false : "hidden"}
+                  animate={reduceMotion ? undefined : "visible"}
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.05,
+                        delayChildren: 0.08,
+                      },
+                    },
+                  }}
+                >
+                  {navLinks.map((link) => {
+                    const isActive = activeHref === link.href;
+
+                    return (
+                      <motion.li
+                        key={link.href}
+                        variants={{
+                          hidden: { opacity: 0, x: 20 },
+                          visible: {
+                            opacity: 1,
+                            x: 0,
+                            transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
+                          },
+                        }}
+                      >
+                        <a
+                          href={link.href}
+                          onClick={() => {
+                            setActiveHref(link.href);
+                            setMobileOpen(false);
+                          }}
+                          className={`flex min-h-12 items-center rounded-2xl px-4 text-base font-semibold transition-all duration-200 hover:translate-x-1.5 hover:bg-sage-100/70 hover:text-sage-900 ${
+                            isActive
+                              ? "bg-sage-100 text-sage-900"
+                              : "text-sage-800"
+                          }`}
+                        >
+                          {link.label}
+                        </a>
+                      </motion.li>
+                    );
+                  })}
+                </motion.ul>
+              </nav>
+
+              <div className="p-6 border-t border-sage-200/50">
+                <Button
+                  as="a"
+                  href="/start-your-journey"
+                  variant="primary"
+                  size="md"
+                  className="w-full bg-sage-900! hover:bg-sage-700!"
+                  onClick={() => {
+                    setActiveHref("/start-your-journey");
+                    setMobileOpen(false);
+                  }}
+                >
+                  Start Your Journey
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -1,0 +1,13 @@
+<svg width="720" height="220" viewBox="0 0 720 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(44 30)">
+    <circle cx="80" cy="80" r="56" stroke="rgba(255,255,255,0.25)" stroke-width="3.5"/>
+    <path d="M63 43.5C73.6 54.6 78.8 67.8 78.8 83.1V116.9" stroke="#F6F3EC" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M97 43.5C86.4 54.6 81.2 67.8 81.2 83.1V116.9" stroke="#F6F3EC" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M78.8 91.6C79.7 87.5 82.9 84.1 88.4 81.5C93.9 78.9 99.5 78 105.3 79" stroke="#F6F3EC" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M78.8 69.8C74.8 64 68.9 60.5 61.1 59.4" stroke="#F6F3EC" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M63 43.5C72 44.3 77.6 48 80 54.6C82.4 48 88 44.3 97 43.5" stroke="#F6F3EC" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M61.9 120H98.1" stroke="#F6F3EC" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+  <text x="226" y="98" fill="#FFFFFF" font-family="'Playfair Display', 'Cormorant Garamond', Georgia, serif" font-size="58" font-weight="500" letter-spacing="0.5">InnerLight</text>
+  <text x="231" y="139" fill="rgba(255,255,255,0.82)" font-family="'Plus Jakarta Sans', Inter, Arial, sans-serif" font-size="15" font-weight="500" letter-spacing="8">COUNSELLING</text>
+</svg>

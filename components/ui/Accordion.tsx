@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { FAQ } from "@/types";
+import { MotionStagger, MotionStaggerItem } from "@/components/ui/Motion";
 
 interface AccordionProps {
   items: FAQ[];
@@ -15,11 +16,11 @@ export function Accordion({ items }: AccordionProps) {
   };
 
   return (
-    <div className="flex flex-col gap-3">
+    <MotionStagger className="flex flex-col gap-3">
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (
-          <div
+          <MotionStaggerItem
             key={item.id}
             className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
               isOpen ? "border-sage-300 shadow-[var(--shadow-card)]" : "border-beige-200"
@@ -69,9 +70,9 @@ export function Accordion({ items }: AccordionProps) {
                 </p>
               </div>
             </div>
-          </div>
+          </MotionStaggerItem>
         );
       })}
-    </div>
+    </MotionStagger>
   );
 }

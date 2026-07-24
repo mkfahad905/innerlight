@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { DM_Sans, Cormorant_Garamond } from "next/font/google";
+import { Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const cormorantGaramond = Cormorant_Garamond({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["400", "500", "600", "700"],
@@ -44,6 +44,9 @@ export const metadata: Metadata = {
     description:
       "Compassionate, evidence-based counselling for individuals and couples.",
   },
+  icons: {
+    icon: "/innerlight-logo-2-icon.svg",
+  },
   robots: {
     index: true,
     follow: true,
@@ -58,7 +61,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${cormorantGaramond.variable}`}
+      className={`${manrope.variable} ${playfairDisplay.variable}`}
     >
       <body className="min-h-screen flex flex-col antialiased">
         {children}

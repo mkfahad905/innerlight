@@ -1,5 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 // ─── Decorative floating background shapes (unchanged) ───────────────────────
 function FloatingShapes() {
@@ -48,10 +53,16 @@ function FloatingShapes() {
 // ─── Therapist portrait + info card ──────────────────────────────────────────
 function TherapistCard() {
   const badges = ["Online Sessions", "Confidential", "Evidence-Based"];
+  const reduceMotion = useReducedMotion();
 
   return (
     // Outer wrapper — no gap; card will overlap portrait via negative margin
-    <div className="flex flex-col items-center w-full max-w-xs mx-auto lg:mx-0">
+    <motion.div
+      className="flex flex-col items-center w-full max-w-xs mx-auto lg:mx-0"
+      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+      animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease, delay: 0.28 }}
+    >
       {/* Portrait — deepened gradient so card blends naturally */}
       <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl ring-2 ring-white/20">
         <Image
@@ -79,7 +90,7 @@ function TherapistCard() {
         <div className="flex items-start justify-between gap-3">
           <div className="flex flex-col gap-0.5">
             <p className="font-display font-semibold text-white text-[1.05rem] leading-snug">
-              [Safana Sabeer]
+              Safana Sabeer
             </p>
             <p className="text-sage-200 text-xs tracking-wide">M.A. Clinical Psychology</p>
           </div>
@@ -107,17 +118,28 @@ function TherapistCard() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 // ─── Hero Section ─────────────────────────────────────────────────────────────
 export function HeroSection() {
+  const reduceMotion = useReducedMotion();
+  const headingWords = [
+    { text: "Find" },
+    { text: "Your" },
+    { text: "Inner", accent: true },
+    { text: "Light,", accent: true },
+    { text: "Begin" },
+    { text: "to" },
+    { text: "Heal" },
+  ];
+
   return (
     <section
       id="hero"
       aria-label="Hero"
-      className="relative min-h-[80vh] flex items-center overflow-hidden"
+      className="relative min-h-0 flex items-center overflow-hidden lg:min-h-[80vh]"
     >
       {/* Background gradient (unchanged) */}
       <div
@@ -132,41 +154,81 @@ export function HeroSection() {
       <FloatingShapes />
 
       {/* Main content */}
-      <div className="container-custom relative z-10 py-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="container-custom relative z-10 pt-28 pb-16 flex flex-col lg:flex-row items-center gap-10 lg:gap-20 lg:py-20">
         {/* Left: Headline + copy + CTAs */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-7">
           {/* Eyebrow badge (unchanged) */}
-          <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm text-white font-medium">
+          <motion.span
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm text-white font-medium"
+            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease }}
+          >
             <span
               className="w-2 h-2 rounded-full bg-sage-300 animate-pulse"
               aria-hidden="true"
             />
             Welcoming New Clients
-          </span>
+          </motion.span>
 
           {/* Headline — brand identity restored */}
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] font-semibold text-white leading-tight">
-            Find Your{" "}
-            <span className="italic text-sage-200">Inner Light</span>,{" "}
-            <br className="hidden sm:block" />
-            Begin to Heal
-          </h1>
+          <motion.h1
+            className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4rem] font-semibold text-white leading-tight"
+            initial={reduceMotion ? false : "hidden"}
+            animate={reduceMotion ? undefined : "visible"}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.07 } },
+            }}
+          >
+            {headingWords.map((word, index) => (
+              <motion.span
+                key={`${word.text}-${index}`}
+                className={`inline-block ${word.accent ? "italic text-sage-200" : ""}`}
+                variants={{
+                  hidden: { opacity: 0, y: 14 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.8, ease },
+                  },
+                }}
+              >
+                {word.text}
+                {index === 3 && (
+                  <>
+                    {" "}
+                    <br className="hidden sm:block" />
+                  </>
+                )}
+                {index !== 3 && index < headingWords.length - 1 ? "\u00a0" : ""}
+              </motion.span>
+            ))}
+          </motion.h1>
 
           {/* Subtitle — warm, empathetic, professional */}
-          <p className="text-lg sm:text-xl text-white/80 max-w-lg leading-relaxed">
+          <motion.p
+            className="text-lg sm:text-xl text-white/80 max-w-lg leading-relaxed"
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.2 }}
+          >
             Whether you&rsquo;re feeling overwhelmed, anxious, emotionally
             exhausted, or simply need someone to talk to — you&rsquo;re welcome
             here. Together, we&rsquo;ll work toward clarity, resilience, and
             lasting emotional wellbeing.
-          </p>
+          </motion.p>
 
           {/* CTAs (unchanged markup, same classes) */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <motion.div
+            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.98 }}
+            animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease, delay: 0.34 }}
+          >
             <Button
               as="a"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSefziIgLIwbiAeNkwEi6bc5EppfXVfGtskrEt_hi6CGMt1TqQ/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/start-your-journey"
               variant="primary"
               size="lg"
               className="w-full sm:w-auto bg-white! text-sage-900! hover:bg-beige-100!"
@@ -196,11 +258,11 @@ export function HeroSection() {
             >
               Learn More
             </Button>
-          </div>
+          </motion.div>
         </div>
 
         {/* Right: Therapist portrait + info card */}
-        <div className="flex-shrink-0 w-full lg:w-72 xl:w-80">
+        <div className="flex-shrink-0 w-full max-w-xs lg:max-w-none lg:w-72 xl:w-80">
           <TherapistCard />
         </div>
       </div>

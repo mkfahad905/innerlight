@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { MotionDiv, MotionSection, MotionStagger, MotionStaggerItem } from "@/components/ui/Motion";
 
 const steps = [
   {
@@ -142,10 +143,10 @@ const steps = [
 
 export function JourneyStepsSection() {
   return (
-    <section
+    <MotionSection
       id="journey"
       aria-label="How Your Journey Begins"
-      className="py-24 lg:py-32 bg-beige-50"
+      className="py-20 lg:py-32 bg-beige-50"
     >
       <div className="container-custom flex flex-col gap-16">
         {/* Heading */}
@@ -158,11 +159,11 @@ export function JourneyStepsSection() {
         </div>
 
         {/* Steps grid — 2 columns on md, 3 on lg */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+        <MotionStagger className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
           {steps.map((step, idx) => {
             const isLast = idx === steps.length - 1;
             return (
-              <div
+              <MotionStaggerItem
                 key={step.number}
                 className="relative flex flex-col gap-5 group"
               >
@@ -207,13 +208,13 @@ export function JourneyStepsSection() {
                     aria-hidden="true"
                   />
                 </div>
-              </div>
+              </MotionStaggerItem>
             );
           })}
-        </div>
+        </MotionStagger>
 
         {/* Reassurance strip */}
-        <div
+        <MotionDiv
           className="rounded-3xl px-8 py-7 flex flex-col sm:flex-row items-center gap-5 sm:gap-8"
           style={{ background: "linear-gradient(135deg, #2D4A3E 0%, #4E6A5E 100%)" }}
         >
@@ -226,8 +227,8 @@ export function JourneyStepsSection() {
               The intake form takes just a few minutes — and it&rsquo;s the only step you need to take today.
             </p>
           </div>
-        </div>
+        </MotionDiv>
       </div>
-    </section>
+    </MotionSection>
   );
 }

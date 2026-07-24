@@ -35,8 +35,8 @@
   --color-muted:        #6b7280;
 
   /* Typography */
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans:    "DM Sans", system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans:    "Manrope", system-ui, sans-serif;
 
   /* Spacing extras */
   --spacing-18: 4.5rem;
@@ -170,4 +170,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-sage-600);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

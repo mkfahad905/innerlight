@@ -1,0 +1,16 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">InnerLight Counselling luxury monogram logo</title>
+  <desc id="desc">A one-color abstract I and L monogram in a circular emblem above the InnerLight Counselling wordmark.</desc>
+  <g stroke="#2F4F46" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="480" cy="202" r="118" stroke-width="4.5"/>
+    <path d="M480 104V284" stroke-width="5.5"/>
+    <path d="M528 112C497 142 479 176 474 215C469 257 496 281 555 287" stroke-width="5.5"/>
+    <path d="M432 116C457 141 472 170 477 202" stroke-width="5"/>
+    <path d="M437 286C454 299 471 305 488 303C508 301 531 295 555 287" stroke-width="5"/>
+    <circle cx="480" cy="86" r="7.5" stroke-width="4.5"/>
+    <path d="M447 100L429 82" stroke-width="4.25"/>
+    <path d="M513 100L531 82" stroke-width="4.25"/>
+  </g>
+  <text x="480" y="442" text-anchor="middle" fill="#2F4F46" font-family="'Playfair Display', 'Cormorant Garamond', 'Times New Roman', serif" font-size="82" font-weight="500" letter-spacing="0.8">InnerLight</text>
+  <text x="480" y="500" text-anchor="middle" fill="#2F4F46" font-family="'Plus Jakarta Sans', Inter, Arial, sans-serif" font-size="19" font-weight="500" letter-spacing="10">COUNSELLING</text>
+</svg>
