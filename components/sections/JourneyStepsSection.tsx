@@ -170,7 +170,7 @@ export function JourneyStepsSection() {
                 {/* Connector line — visible on lg between columns, hidden on last of each row */}
                 {!isLast && (
                   <span
-                    className={`hidden lg:block absolute top-[26px] left-[calc(100%+0px)] w-8 border-t-2 border-dashed border-sage-200 pointer-events-none ${
+                    className={`hidden lg:block absolute top-[30px] left-[calc(100%+0px)] w-8 border-t border-dashed border-sage-200/70 pointer-events-none ${
                       // hide on every 3rd item (last in each row)
                       (idx + 1) % 3 === 0 ? "!hidden" : ""
                     }`}
@@ -179,15 +179,15 @@ export function JourneyStepsSection() {
                 )}
 
                 {/* Card */}
-                <div className="bg-white rounded-3xl border border-beige-200 p-7 flex flex-col gap-5 hover:border-sage-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="flex h-full flex-col gap-5 rounded-3xl border border-sage-200/70 bg-beige-50/95 p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)]">
                   {/* Icon + step number row */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center justify-between gap-4">
                     {/* Icon circle */}
-                    <div className="w-12 h-12 rounded-2xl bg-sage-50 border border-sage-100 flex items-center justify-center text-sage-600 flex-shrink-0 group-hover:bg-sage-100 transition-colors duration-300">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-sage-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100">
                       {step.icon}
                     </div>
                     {/* Step number badge */}
-                    <span className="font-mono text-2xl font-semibold text-beige-300 leading-none select-none">
+                    <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-sage-200/80 bg-sage-50/80 font-mono text-xs font-semibold text-sage-600 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] select-none">
                       {step.number}
                     </span>
                   </div>
@@ -197,14 +197,14 @@ export function JourneyStepsSection() {
                     <h3 className="font-display font-semibold text-lg text-sage-900 leading-snug">
                       {step.title}
                     </h3>
-                    <p className="text-muted text-sm leading-relaxed">
+                    <p className="max-w-[34ch] text-sm leading-7 text-muted">
                       {step.description}
                     </p>
                   </div>
 
                   {/* Bottom accent line on hover */}
                   <div
-                    className="mt-auto h-0.5 rounded-full bg-gradient-to-r from-sage-300 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                    className="mt-auto h-px origin-left scale-x-0 rounded-full bg-sage-900/30 transition-transform duration-300 group-hover:scale-x-100"
                     aria-hidden="true"
                   />
                 </div>

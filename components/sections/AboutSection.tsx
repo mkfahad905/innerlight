@@ -55,17 +55,18 @@ export function AboutSection() {
 
             {/* Floating credentials card */}
             <div
-              className="absolute -bottom-6 -right-4 lg:-right-8 bg-white rounded-2xl p-5 shadow-[var(--shadow-card-hover)] max-w-[200px]"
+              className="absolute -bottom-6 -right-4 max-w-[200px] rounded-3xl border border-white/55 bg-white/72 p-5 shadow-[var(--shadow-card)] backdrop-blur-xl lg:-right-8"
               aria-hidden="true"
             >
-              <div className="flex flex-col gap-1">
+              <div className="absolute left-5 top-0 h-px w-16 bg-sage-900/35" aria-hidden="true" />
+              <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="text-2xl">🎓</span>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">🎓</span>
                   <span className="text-xs font-semibold text-sage-700 uppercase tracking-wider">
                     Qualifications
                   </span>
                 </div>
-                <p className="text-xs text-muted leading-snug">
+                <p className="text-xs text-muted leading-relaxed">
                   M.A. Clinical Psychology · B.Sc. Psychology
                 </p>
               </div>
@@ -101,13 +102,13 @@ export function AboutSection() {
               {values.map((v) => (
                 <MotionStaggerItem
                   key={v.title}
-                  className="bg-white rounded-2xl p-4 flex flex-col gap-2 border border-beige-200 hover:border-sage-300 hover:shadow-[var(--shadow-card)] transition-all duration-300"
+                  className="group flex flex-col gap-3 rounded-3xl border border-sage-200/70 bg-beige-50/95 p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)]"
                 >
-                  <span className="text-2xl" aria-hidden="true">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100" aria-hidden="true">
                     {v.icon}
                   </span>
                   <h3 className="font-semibold text-sage-900 text-sm">{v.title}</h3>
-                  <p className="text-xs text-muted leading-relaxed">{v.desc}</p>
+                  <p className="text-xs leading-6 text-muted">{v.desc}</p>
                 </MotionStaggerItem>
               ))}
             </MotionStagger>

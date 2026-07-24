@@ -10,9 +10,9 @@ export function Card({ children, hover = true, className = "", ...rest }: CardPr
   return (
     <div
       className={[
-        "bg-white rounded-2xl p-6 shadow-[var(--shadow-card)]",
+        "bg-beige-50 rounded-3xl border border-sage-200/70 p-7 shadow-[var(--shadow-card)]",
         hover &&
-          "transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-1",
+          "transition-all duration-300 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-1.5",
         className,
       ]
         .filter(Boolean)

@@ -231,7 +231,7 @@ export function ThankYouConfirmation({
               {timeline.map((item, index) => (
                 <motion.li
                   key={item.title}
-                  className="group relative flex flex-wrap gap-4 rounded-3xl border border-beige-200/80 bg-white/74 p-4 shadow-[var(--shadow-card)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-sage-300 hover:shadow-[var(--shadow-card-hover)] sm:flex-nowrap sm:gap-5 sm:p-5"
+                  className="group relative flex flex-wrap gap-4 rounded-3xl border border-sage-200/70 bg-beige-50/90 p-5 shadow-[var(--shadow-card)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] sm:flex-nowrap sm:gap-5 sm:p-6"
                   variants={{
                     hidden: { opacity: 0, y: 22 },
                     visible: {

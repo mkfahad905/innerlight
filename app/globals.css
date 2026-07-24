@@ -43,8 +43,8 @@
   --spacing-22: 5.5rem;
 
   /* Shadows */
-  --shadow-card: 0 4px 24px 0 rgba(45, 74, 62, 0.08);
-  --shadow-card-hover: 0 8px 40px 0 rgba(45, 74, 62, 0.14);
+  --shadow-card: 0 10px 30px rgba(47, 79, 70, 0.06);
+  --shadow-card-hover: 0 18px 42px rgba(47, 79, 70, 0.10);
 }
 
 /* ─────────────────────────────────────────

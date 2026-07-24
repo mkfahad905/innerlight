@@ -112,10 +112,10 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 after:absolute after:left-4 after:right-4 after:bottom-1.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:opacity-55 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                     scrolled
                       ? "text-sage-800 hover:bg-sage-100 hover:text-sage-700"
-                      : "text-white/92 hover:bg-white/10 hover:text-white"
+                      : "text-white/92 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -134,7 +134,7 @@ export function Navbar() {
               className={`!px-6 !py-2.5 ${
                 scrolled
                   ? ""
-                  : "border border-white/70 bg-white/10! text-white! shadow-none backdrop-blur-sm hover:bg-white! hover:text-sage-900! hover:shadow-[0_10px_28px_-18px_rgba(255,255,255,0.85)]"
+                  : "border border-white/70 !bg-white/10 !text-white shadow-none backdrop-blur-sm hover:!bg-white hover:!text-sage-900 hover:shadow-[0_10px_28px_-18px_rgba(255,255,255,0.85)]"
               }`}
             >
               Start Your Journey
@@ -187,7 +187,7 @@ export function Navbar() {
           >
             {/* Backdrop */}
             <motion.div
-              className="absolute inset-0 bg-black/25 backdrop-blur-[6px]"
+              className="absolute inset-0 bg-[rgba(25,25,25,0.25)] backdrop-blur-[6px]"
               onClick={() => setMobileOpen(false)}
               aria-hidden="true"
               initial={reduceMotion ? false : { opacity: 0 }}
@@ -198,7 +198,7 @@ export function Navbar() {
 
             {/* Drawer */}
             <motion.div
-              className="absolute right-0 top-0 flex h-full w-72 max-w-[88vw] flex-col overflow-hidden rounded-l-[2rem] border-l border-white/70 bg-[rgba(247,244,238,0.90)] shadow-[0_24px_80px_-24px_rgba(45,74,62,0.45)] backdrop-blur-[20px]"
+              className="absolute right-0 top-0 flex h-full w-72 max-w-[88vw] flex-col overflow-hidden rounded-l-[2rem] border-l border-white/70 bg-[rgba(247,244,238,0.92)] shadow-[0_24px_80px_-24px_rgba(45,74,62,0.45)] backdrop-blur-[20px]"
               initial={reduceMotion ? false : { opacity: 0, x: 64 }}
               animate={reduceMotion ? undefined : { opacity: 1, x: 0 }}
               exit={reduceMotion ? undefined : { opacity: 0, x: 64 }}
@@ -223,7 +223,7 @@ export function Navbar() {
                 <button
                   aria-label="Close menu"
                   onClick={() => setMobileOpen(false)}
-                  className="w-12 h-12 flex flex-shrink-0 items-center justify-center rounded-2xl text-sage-800 transition-colors duration-200 hover:bg-sage-100"
+                  className="w-12 h-12 flex flex-shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-800 transition-colors duration-200 hover:bg-sage-900 hover:text-white"
                 >
                   <svg
                     className="w-5 h-5"

@@ -4,11 +4,11 @@ import { MotionSection, MotionStagger, MotionStaggerItem } from "@/components/ui
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex items-center gap-0.5" aria-label={`${rating} out of 5 stars`} role="img">
+    <div className="flex items-center gap-1" aria-label={`${rating} out of 5 stars`} role="img">
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          className={`w-4 h-4 ${i < rating ? "text-amber-400" : "text-beige-300"}`}
+          className={`h-4 w-4 ${i < rating ? "text-amber-400" : "text-beige-300"}`}
           fill="currentColor"
           viewBox="0 0 20 20"
           aria-hidden="true"
@@ -42,29 +42,34 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, idx) => (
             <MotionStaggerItem key={testimonial.id}>
             <article
-              className={`group bg-white rounded-3xl p-7 border border-beige-200 hover:border-sage-300 hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 flex flex-col gap-5 ${
+              className={`group relative flex flex-col gap-6 overflow-hidden rounded-3xl border border-sage-200/70 bg-beige-50/95 p-8 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] ${
                 // Offset every other card slightly for visual interest
                 idx % 2 === 1 ? "lg:translate-y-6" : ""
               }`}
             >
+              <div
+                className="pointer-events-none absolute inset-x-6 top-0 h-px bg-white/80"
+                aria-hidden="true"
+              />
+
               {/* Quote mark */}
               <div
-                className="text-sage-200 font-display text-7xl leading-none -mb-4 select-none"
+                className="-mb-5 font-display text-8xl leading-none text-sage-200/80 select-none"
                 aria-hidden="true"
               >
                 &ldquo;
               </div>
 
               {/* Quote text */}
-              <blockquote className="text-sage-800 leading-relaxed text-sm flex-1">
+              <blockquote className="flex-1 text-[0.95rem] leading-7 text-sage-800/90">
                 {testimonial.quote}
               </blockquote>
 
               {/* Footer */}
-              <footer className="flex items-center gap-3 pt-2 border-t border-beige-200">
+              <footer className="flex items-center gap-3 border-t border-sage-100 pt-5">
                 {/* Avatar */}
                 <div
-                  className="w-10 h-10 rounded-full bg-sage-500 flex items-center justify-center text-white text-sm font-semibold flex-shrink-0"
+                  className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-sage-200/70 bg-sage-100 text-sm font-semibold text-sage-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]"
                   aria-hidden="true"
                 >
                   {testimonial.initials}

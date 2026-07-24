@@ -25,14 +25,14 @@ export function ServicesSection() {
           {services.map((service, idx) => (
             <MotionArticle
               key={service.id}
-              className="group bg-white rounded-3xl overflow-hidden border border-beige-200 hover:border-sage-300 hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-sage-200/70 bg-beige-50/95 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)]"
               style={{ animationDelay: `${idx * 80}ms` }}
             >
               {/* Card header */}
-              <div className={`${service.color} px-6 pt-6 pb-4`}>
-                <div className="w-12 h-12 rounded-2xl bg-white/80 flex items-center justify-center shadow-sm mb-4">
+              <div className={`${service.color} px-7 pt-7 pb-5`}>
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-sage-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100">
                   <svg
-                    className="w-6 h-6 text-sage-600"
+                    className="w-6 h-6"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-hidden="true"
@@ -46,11 +46,11 @@ export function ServicesSection() {
               </div>
 
               {/* Card body */}
-              <div className="px-6 pb-6 flex flex-col gap-4 flex-1">
-                <p className="text-muted text-sm leading-relaxed">{service.description}</p>
+              <div className="flex flex-1 flex-col gap-5 px-7 pb-7 pt-5">
+                <p className="max-w-[32ch] text-sm leading-7 text-muted">{service.description}</p>
 
                 {/* Approach tags */}
-                <div className="flex flex-col gap-1.5 mt-auto">
+                <div className="mt-auto flex flex-col gap-2.5">
                   {service.features.map((feature) => (
                     <div
                       key={feature}
@@ -78,12 +78,12 @@ export function ServicesSection() {
                 {/* Learn more link */}
                 <a
                   href="/start-your-journey"
-                  className="inline-flex items-center gap-1.5 text-sage-600 text-sm font-semibold mt-2 group-hover:text-sage-700 transition-colors duration-200"
+                  className="inline-flex items-center gap-1.5 border-t border-sage-100 pt-4 text-sm font-semibold text-sage-700 transition-colors duration-300 group-hover:text-sage-900"
                   aria-label={`Learn more about ${service.title}`}
                 >
                   Learn More
                   <svg
-                    className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

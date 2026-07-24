@@ -22,9 +22,9 @@ export function FAQSection() {
             />
 
             {/* Still have questions card */}
-            <MotionDiv className="bg-sage-900 rounded-3xl p-6 flex flex-col gap-4">
+            <MotionDiv className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-sage-900 p-7 shadow-[var(--shadow-card)]">
               <div
-                className="w-12 h-12 rounded-2xl bg-sage-700 flex items-center justify-center text-2xl"
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-sage-700 text-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
                 aria-hidden="true"
               >
                 💬
@@ -41,11 +41,11 @@ export function FAQSection() {
                 href="https://instagram.com/[innerlight_counselling]"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-white text-sage-900 font-semibold text-sm px-5 py-3 rounded-full hover:bg-beige-100 transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-sage-900 transition-all duration-300 hover:-translate-y-0.5 hover:bg-beige-100"
               >
                 Message on Instagram
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

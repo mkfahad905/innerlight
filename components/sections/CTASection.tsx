@@ -17,7 +17,7 @@ export function CTASection() {
     >
       <div className="container-custom">
         <div
-          className="relative rounded-[2rem] overflow-hidden px-8 py-16 sm:px-14 sm:py-20 lg:px-20 flex flex-col items-center text-center gap-10"
+          className="relative flex flex-col items-center gap-10 overflow-hidden rounded-[2rem] border border-white/10 px-8 py-16 text-center shadow-[var(--shadow-card-hover)] sm:px-14 sm:py-20 lg:px-20"
           style={{
             background:
               "linear-gradient(135deg, #2D4A3E 0%, #3D5E52 40%, #4E6A5E 75%, #5A7A6A 100%)",
@@ -42,7 +42,7 @@ export function CTASection() {
 
           {/* Leaf icon */}
           <MotionDiv
-            className="relative z-10 w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-3xl backdrop-blur-sm"
+            className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 text-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-sm"
             aria-hidden="true"
           >
             🌿
@@ -55,9 +55,7 @@ export function CTASection() {
               <span className="italic text-sage-200">First Step?</span>
             </h2>
             <p className="text-lg text-white/75 leading-relaxed max-w-xl">
-              You don&rsquo;t have to figure everything out alone. Complete a short
-              confidential intake form, and I&rsquo;ll personally review your
-              responses before reaching out on WhatsApp.
+              Take the first step toward emotional well-being. Complete the appointment request form to begin your counselling journey.
             </p>
           </MotionDiv>
 
@@ -66,7 +64,7 @@ export function CTASection() {
             {trustBadges.map((badge) => (
               <MotionStaggerItem
                 key={badge.label}
-                className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm font-medium text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/12 px-4 py-2 text-sm font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-sm"
               >
                 <svg
                   className="w-4 h-4 text-sage-300 flex-shrink-0"
@@ -94,11 +92,11 @@ export function CTASection() {
               href="/start-your-journey"
               variant="primary"
               size="lg"
-              className="bg-white! text-sage-900! hover:bg-beige-100! !px-10"
+              className="group !bg-white !px-10 !text-sage-900 hover:!bg-beige-100"
             >
               Start Your Journey
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

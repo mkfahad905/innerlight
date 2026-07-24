@@ -63,32 +63,37 @@ export function WhyUsSection() {
           {reasons.map((reason, idx) => (
             <MotionStaggerItem
               key={reason.title}
-              className="group relative bg-white rounded-3xl p-7 border border-beige-200 hover:border-sage-300 transition-all duration-300 hover:shadow-[var(--shadow-card-hover)] hover:-translate-y-1 flex flex-col gap-4"
+              className="group relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-sage-200/70 bg-beige-50/95 p-8 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)]"
             >
+              <div
+                className="absolute left-8 right-8 top-0 h-px bg-sage-900/35"
+                aria-hidden="true"
+              />
+
               {/* Number badge */}
               <span
-                className="absolute top-5 right-5 text-xs font-mono text-beige-400"
+                className="absolute top-6 right-6 text-xs font-mono text-sage-300"
                 aria-hidden="true"
               >
                 0{idx + 1}
               </span>
 
               {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-sage-50 border border-sage-100 flex items-center justify-center text-2xl group-hover:bg-sage-100 transition-colors duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-2xl text-sage-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100">
                 {reason.emoji}
               </div>
 
               {/* Content */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 <h3 className="font-display font-semibold text-lg text-sage-900 leading-snug">
                   {reason.title}
                 </h3>
-                <p className="text-muted text-sm leading-relaxed">{reason.description}</p>
+                <p className="max-w-[34ch] text-sm leading-7 text-muted">{reason.description}</p>
               </div>
 
               {/* Bottom accent line */}
               <div
-                className="absolute bottom-0 left-6 right-6 h-0.5 rounded-full bg-gradient-to-r from-sage-300 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                className="absolute bottom-0 left-8 right-8 h-px origin-left scale-x-0 rounded-full bg-sage-900/30 transition-transform duration-300 group-hover:scale-x-100"
                 aria-hidden="true"
               />
             </MotionStaggerItem>
@@ -102,16 +107,16 @@ export function WhyUsSection() {
               Ready to take the first step?
             </p>
             <p className="text-sage-300 mt-1 text-sm">
-              Your free 20-minute consultation is just one click away.
+              Take the first step toward emotional well-being. Complete the appointment request form to begin your counselling journey.
             </p>
           </div>
           <MotionAnchor
             href="/start-your-journey"
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-white text-sage-900 font-semibold px-7 py-3.5 rounded-full hover:bg-beige-100 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            className="group inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-sage-900 transition-all duration-300 hover:-translate-y-0.5 hover:bg-beige-100 hover:shadow-lg"
           >
-            Book Free Consultation
+            Start Your Journey
             <svg
-              className="w-5 h-5"
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

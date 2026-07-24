@@ -5,7 +5,7 @@ export const faqs: FAQ[] = [
     id: "1",
     question: "How do I know if counselling is right for me?",
     answer:
-      "Counselling can benefit anyone who wants to better understand themselves, improve their mental wellbeing, or work through a specific challenge. You don't need to be in crisis to seek support. If you've been feeling persistently low, anxious, overwhelmed, or simply stuck, therapy can provide the clarity and tools to move forward. I offer a free 20-minute consultation so you can get a sense of whether it's the right fit before committing.",
+      "Counselling can benefit anyone who wants to better understand themselves, improve their mental wellbeing, or work through a specific challenge. You don't need to be in crisis to seek support. If you've been feeling persistently low, anxious, overwhelmed, or simply stuck, therapy can provide the clarity and tools to move forward.",
   },
   {
     id: "2",

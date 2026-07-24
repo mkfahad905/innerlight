@@ -20,7 +20,7 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   title: "InnerLight Counselling | Compassionate Mental Health Support",
   description:
-    "InnerLight Counselling offers evidence-based, one-to-one psychological support. Specialising in anxiety, depression, trauma, and life transitions. Reach out today for a free consultation.",
+    "InnerLight Counselling offers evidence-based, one-to-one psychological support. Specialising in anxiety, depression, trauma, and life transitions. Complete an appointment request to begin your counselling journey.",
   keywords: [
     "counselling",
     "therapy",

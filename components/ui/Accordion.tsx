@@ -22,8 +22,8 @@ export function Accordion({ items }: AccordionProps) {
         return (
           <MotionStaggerItem
             key={item.id}
-            className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
-              isOpen ? "border-sage-300 shadow-[var(--shadow-card)]" : "border-beige-200"
+            className={`overflow-hidden rounded-3xl border bg-beige-50/95 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] ${
+              isOpen ? "border-sage-900 shadow-[var(--shadow-card-hover)]" : "border-sage-200/70"
             }`}
           >
             <button
@@ -31,15 +31,15 @@ export function Accordion({ items }: AccordionProps) {
               aria-expanded={isOpen}
               aria-controls={`faq-panel-${item.id}`}
               onClick={() => toggle(item.id)}
-              className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400 focus-visible:ring-inset group"
+              className="group flex w-full items-center justify-between gap-4 px-7 py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400 focus-visible:ring-inset"
             >
               <span className="font-semibold text-sage-900 text-base sm:text-lg pr-2 group-hover:text-sage-600 transition-colors duration-200">
                 {item.question}
               </span>
               {/* Animated plus/minus icon */}
               <span
-                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  isOpen ? "bg-sage-500 rotate-45" : "bg-sage-100"
+                className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-sage-200/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-all duration-300 ${
+                  isOpen ? "rotate-45 bg-sage-900" : "bg-sage-50"
                 }`}
                 aria-hidden="true"
               >
@@ -65,7 +65,7 @@ export function Accordion({ items }: AccordionProps) {
               className={`accordion-content ${isOpen ? "open" : ""}`}
             >
               <div>
-                <p className="px-6 pb-6 text-muted leading-relaxed text-base">
+                <p className="px-7 pb-7 text-base leading-7 text-muted">
                   {item.answer}
                 </p>
               </div>

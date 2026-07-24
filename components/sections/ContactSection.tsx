@@ -135,9 +135,9 @@ export function ContactSection() {
               {contactInfo.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-start gap-4 bg-white rounded-2xl p-5 border border-beige-200"
+                  className="flex items-start gap-4 rounded-3xl border border-sage-200/70 bg-beige-50/95 p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)]"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-sage-100 flex items-center justify-center text-sage-600 flex-shrink-0">
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-sage-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
                     {item.icon}
                   </div>
                   <div>
@@ -152,21 +152,21 @@ export function ContactSection() {
               ))}
             </div>
 
-            {/* Free consult nudge */}
+            {/* Appointment nudge */}
             <div
-              className="rounded-3xl p-6 text-white flex flex-col gap-3"
+              className="flex flex-col gap-3 rounded-3xl border border-white/10 p-7 text-white shadow-[var(--shadow-card)]"
               style={{ background: "linear-gradient(135deg, #2D4A3E 0%, #4E6A5E 100%)" }}
             >
               <span className="text-3xl" aria-hidden="true">🌟</span>
-              <h3 className="font-display font-semibold text-xl">Free 20-Min Consultation</h3>
+              <h3 className="font-display font-semibold text-xl">Start Your Journey</h3>
               <p className="text-sage-200 text-sm leading-relaxed">
-                Not sure if counselling is right for you? Book a free, no-obligation call to find out how we can help.
+                Complete the appointment request form and I&rsquo;ll personally review your information before getting in touch.
               </p>
             </div>
           </div>
 
           {/* Right: Contact form */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-beige-200 shadow-[var(--shadow-card)]">
+          <div className="rounded-3xl border border-sage-200/70 bg-beige-50/95 p-8 shadow-[var(--shadow-card)] sm:p-10">
             {submitted ? (
               <div className="flex flex-col items-center justify-center gap-6 h-full min-h-[400px] text-center">
                 <div className="w-20 h-20 rounded-full bg-sage-100 flex items-center justify-center text-4xl">

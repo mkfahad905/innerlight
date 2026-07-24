@@ -81,7 +81,8 @@ export function MotionStaggerItem({
   return (
     <motion.div
       {...props}
-      whileHover={reduceMotion ? undefined : { y: -4 }}
+      whileHover={reduceMotion ? undefined : { y: -6 }}
+      transition={{ duration: 0.3, ease }}
       variants={{
         hidden: { opacity: 0, y: 30 },
         visible: {
@@ -105,7 +106,8 @@ export function MotionArticle({
   return (
     <motion.article
       {...props}
-      whileHover={reduceMotion ? undefined : { y: -4 }}
+      whileHover={reduceMotion ? undefined : { y: -6 }}
+      transition={{ duration: 0.3, ease }}
       variants={{
         hidden: { opacity: 0, y: 30 },
         visible: {

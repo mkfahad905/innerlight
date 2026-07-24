@@ -8,7 +8,7 @@ const inputBaseClasses =
   "w-full rounded-2xl border border-beige-200 bg-white px-4 py-3 text-sm text-sage-900 outline-none transition-all duration-200 placeholder:text-muted/60 focus:border-sage-400 focus:ring-2 focus:ring-sage-100";
 
 const fieldShellClasses =
-  "rounded-3xl border border-beige-200 bg-white p-4 shadow-[var(--shadow-card)] sm:p-5";
+  "rounded-3xl border border-sage-200/70 bg-beige-50/95 p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] sm:p-6";
 
 const initialValues = appointmentFields.reduce<Record<string, string>>(
   (values, field) => {
@@ -182,7 +182,7 @@ export function AppointmentRequestForm() {
                             <label
                               key={option}
                               htmlFor={optionId}
-                              className="flex min-h-12 cursor-pointer items-center gap-3 rounded-2xl border border-beige-200 bg-beige-50 px-4 py-3 text-sm font-medium text-sage-800 transition-all duration-200 hover:border-sage-300 hover:bg-sage-50"
+                              className="flex min-h-12 cursor-pointer items-center gap-3 rounded-2xl border border-sage-200/70 bg-white px-4 py-3 text-sm font-medium text-sage-800 transition-all duration-300 hover:border-sage-900 hover:bg-sage-50"
                             >
                               <input
                                 id={optionId}
@@ -203,7 +203,7 @@ export function AppointmentRequestForm() {
                     {field.type === "checkbox" && field.options && (
                       <label
                         htmlFor={field.id}
-                        className="flex min-h-12 cursor-pointer items-start gap-3 rounded-2xl border border-beige-200 bg-beige-50 px-4 py-3 text-sm font-medium text-sage-800 transition-all duration-200 hover:border-sage-300 hover:bg-sage-50"
+                        className="flex min-h-12 cursor-pointer items-start gap-3 rounded-2xl border border-sage-200/70 bg-white px-4 py-3 text-sm font-medium text-sage-800 transition-all duration-300 hover:border-sage-900 hover:bg-sage-50"
                       >
                         <input
                           id={field.id}
