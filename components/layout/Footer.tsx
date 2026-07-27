@@ -42,7 +42,7 @@ export function Footer() {
       <div className="container-custom py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand column */}
         <div className="lg:col-span-1 flex flex-col gap-5">
-          <Link href="/" aria-label="InnerLight Counselling homepage" className="flex items-center gap-2.5 w-fit">
+          <Link href="/#home" aria-label="InnerLight Counselling homepage" className="flex items-center gap-2.5 w-fit">
             <Image
               src="/innerlight-logo-dark.svg"
               alt=""

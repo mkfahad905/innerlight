@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { MouseEvent } from "react";
 import { useState, useEffect } from "react";
 import {
   AnimatePresence,
@@ -28,6 +29,25 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeHref, setActiveHref] = useState("#about");
   const reduceMotion = useReducedMotion();
+
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    setMobileOpen(false);
+
+    if (window.location.pathname !== "/") return;
+
+    const homeSection = document.getElementById("home");
+    if (!homeSection) return;
+
+    event.preventDefault();
+    if (window.location.hash !== "#home") {
+      window.history.pushState(null, "", "/#home");
+    }
+    setActiveHref("#home");
+    homeSection.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  };
 
   useEffect(() => {
     let frameId: number | null = null;
@@ -101,9 +121,10 @@ export function Navbar() {
             transition={{ duration: 0.6, delay: 0.12 }}
           >
             <Link
-              href="/"
+              href="/#home"
               aria-label="InnerLight Counselling — go to homepage"
               className="flex items-center gap-2.5 group"
+              onClick={handleLogoClick}
             >
               <Image
                 src={scrolled ? "/innerlight-logo-light.svg" : "/innerlight-logo-dark.svg"}
@@ -147,7 +168,7 @@ export function Navbar() {
                   : "border border-white/70 !bg-white/10 !text-white shadow-none backdrop-blur-sm hover:!bg-white hover:!text-sage-900 hover:shadow-[0_10px_28px_-18px_rgba(255,255,255,0.85)]"
               }`}
             >
-              Start Your Journey
+              Book Your Session
             </Button>
           </div>
 
@@ -216,10 +237,10 @@ export function Navbar() {
             >
               <div className="h-20 flex items-center justify-between gap-4 px-6 border-b border-sage-200/50">
                 <Link
-                  href="/"
+                  href="/#home"
                   aria-label="InnerLight Counselling homepage"
                   className="flex min-w-0 items-center"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={handleLogoClick}
                 >
                   <Image
                     src="/innerlight-logo-light.svg"
@@ -310,7 +331,7 @@ export function Navbar() {
                     setMobileOpen(false);
                   }}
                 >
-                  Start Your Journey
+                  Book Your Session
                 </Button>
               </div>
             </m.div>

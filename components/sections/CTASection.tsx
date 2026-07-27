@@ -12,7 +12,7 @@ export function CTASection() {
   return (
     <MotionSection
       id="start-journey"
-      aria-label="Start Your Journey"
+      aria-label="Book Your Session"
       className="py-20 lg:py-32 bg-beige-100"
     >
       <div className="container-custom">
@@ -94,7 +94,7 @@ export function CTASection() {
               size="lg"
               className="group !bg-white !px-10 !text-sage-900 hover:!bg-beige-100"
             >
-              Start Your Journey
+              Book Your Session
               <svg
                 className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"

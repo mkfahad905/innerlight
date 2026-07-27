@@ -114,7 +114,7 @@ export function WhyUsSection() {
             href="/start-your-journey"
             className="group inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-sage-900 transition-all duration-300 hover:-translate-y-0.5 hover:bg-beige-100 hover:shadow-lg"
           >
-            Start Your Journey
+            Book Your Session
             <svg
               className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"

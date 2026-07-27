@@ -114,7 +114,7 @@ export function AboutSection() {
 
             <div>
               <Button as="a" href="/start-your-journey" variant="primary" size="md">
-                Start Your Journey
+                Book Your Session
               </Button>
             </div>
           </MotionDiv>

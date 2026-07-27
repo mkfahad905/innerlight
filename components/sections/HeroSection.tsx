@@ -139,7 +139,7 @@ export function HeroSection() {
   return (
     <LazyMotion features={domAnimation}>
       <section
-        id="hero"
+        id="home"
         aria-label="Hero"
         className="relative min-h-0 flex items-center overflow-hidden lg:min-h-[80vh]"
       >
@@ -235,7 +235,7 @@ export function HeroSection() {
               size="lg"
               className="w-full sm:w-auto bg-white! text-sage-900! hover:bg-beige-100!"
             >
-              Start Your Journey
+              Book Your Session
               <svg
                 className="w-5 h-5"
                 fill="none"
