@@ -12,6 +12,7 @@ const footerLinks = {
   ],
   Company: [
     { label: "About", href: "#about" },
+    { label: "Session Fee", href: "/#session-fee" },
     { label: "Why Choose Us", href: "#why-us" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "FAQ", href: "#faq" },

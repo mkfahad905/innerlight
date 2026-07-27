@@ -93,16 +93,16 @@ export function AboutSection() {
             </div>
 
             {/* Values grid */}
-            <MotionStagger className="grid grid-cols-2 gap-2.5 sm:gap-3">
+            <MotionStagger className="grid w-fit max-w-full grid-cols-2 gap-2 sm:gap-3">
               {values.map((v) => (
                 <MotionStaggerItem
                   key={v.title}
-                  className="group flex h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-sage-200/70 bg-beige-50/95 px-4 py-3 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] lg:h-32 lg:gap-4 lg:rounded-3xl lg:px-5 lg:py-4"
+                  className="group flex min-h-14 w-fit min-w-0 max-w-full items-center gap-2 rounded-xl border border-sage-200/70 bg-white px-3 py-2 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] sm:gap-3 sm:px-4"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100 lg:h-11 lg:w-11 lg:text-xl" aria-hidden="true">
                     {v.icon}
                   </span>
-                  <h3 className="text-center font-semibold text-sage-900 text-sm">{v.title}</h3>
+                  <h3 className="min-w-0 break-words font-semibold text-sage-900 text-sm">{v.title}</h3>
                 </MotionStaggerItem>
               ))}
             </MotionStagger>
