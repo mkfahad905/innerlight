@@ -127,13 +127,13 @@ function TherapistCard() {
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
   const headingWords = [
-    { text: "Find" },
-    { text: "Your" },
-    { text: "Inner", accent: true },
-    { text: "Light,", accent: true },
-    { text: "Begin" },
+    { text: "A" },
+    { text: "Safe" },
+    { text: "Space" },
     { text: "to" },
-    { text: "Heal" },
+    { text: "Heal", accent: true },
+    { text: "and" },
+    { text: "Grow.", accent: true },
   ];
 
   return (
@@ -215,10 +215,9 @@ export function HeroSection() {
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.2 }}
           >
-            Whether you&rsquo;re feeling overwhelmed, anxious, emotionally
-            exhausted, or simply need someone to talk to — you&rsquo;re welcome
-            here. Together, we&rsquo;ll work toward clarity, resilience, and
-            lasting emotional wellbeing.
+            Whether you&rsquo;re feeling overwhelmed, anxious, or navigating
+            life&rsquo;s challenges, you&rsquo;re welcome here. Together,
+            we&rsquo;ll work toward clarity, resilience, and personal growth.
           </m.p>
 
           {/* CTAs (unchanged markup, same classes) */}

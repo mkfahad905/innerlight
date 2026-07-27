@@ -20,7 +20,6 @@ const navLinks = [
   { href: "#why-us", label: "Why Us" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#faq", label: "FAQ" },
-  { href: "/start-your-journey", label: "Start Journey" },
 ];
 
 const SCROLL_THRESHOLD = 48;

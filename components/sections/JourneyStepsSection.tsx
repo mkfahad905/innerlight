@@ -53,9 +53,9 @@ const steps = [
   },
   {
     number: "03",
-    title: "Receive a WhatsApp Message",
+    title: "Send a WhatsApp Message",
     description:
-      "You'll hear from me directly on WhatsApp — a warm, personal message to confirm we're a good fit and answer any initial questions.",
+      "After submitting your appointment request, send me a WhatsApp message to let me know you've completed the form. I'll review your request, answer any questions you may have, and guide you through the next steps.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -75,9 +75,9 @@ const steps = [
   },
   {
     number: "04",
-    title: "Choose Your Session Time",
+    title: "Schedule Your Session",
     description:
-      "Pick a date and time that works for your schedule. Morning, afternoon, or evening — I offer flexible slots to suit your life.",
+      "Once we've connected on WhatsApp, we'll arrange a session time that works best for you. Flexible appointment slots are available to fit your schedule.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -119,9 +119,9 @@ const steps = [
   },
   {
     number: "06",
-    title: "Begin Your Counselling Journey",
+    title: "Attend Your Counselling Session",
     description:
-      "Your first session is a calm, judgment-free space to be heard. This is where healing begins — at your own pace, on your own terms.",
+      "Attend your scheduled online counselling session in a calm, confidential, and supportive space. Together, we'll begin working toward your emotional well-being and personal growth.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -153,7 +153,7 @@ export function JourneyStepsSection() {
         <div className="flex flex-col items-center">
           <SectionHeading
             eyebrow="Your Journey"
-            title="How Your Journey Begins"
+            title="How to Book a Session"
             subtitle="A simple, supportive process designed to make getting help feel easy and comfortable."
           />
         </div>

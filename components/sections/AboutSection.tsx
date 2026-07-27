@@ -7,22 +7,18 @@ const values = [
   {
     icon: "❤️",
     title: "Empathy",
-    desc: "We listen deeply without judgment, honouring your unique experience.",
   },
   {
     icon: "🔒",
     title: "Confidentiality",
-    desc: "Your privacy is paramount. Everything shared stays within our space.",
   },
   {
     icon: "🔬",
     title: "Evidence-Based",
-    desc: "Our methods are grounded in the latest psychological research.",
   },
   {
     icon: "🌍",
     title: "Inclusive",
-    desc: "Welcoming all backgrounds, identities, and life experiences.",
   },
 ];
 
@@ -82,7 +78,7 @@ export function AboutSection() {
           <MotionDiv className="order-1 flex flex-col gap-6 lg:order-2 lg:gap-8">
             <SectionHeading
               eyebrow="About"
-              title="A Sanctuary for Growth & Healing"
+              title="About Your Psychologist"
               subtitle="InnerLight Counselling was founded with a single mission: to provide a safe, warm, and professional space where every person can explore their inner world and move toward a life of greater wellbeing."
               align="left"
             />
@@ -97,17 +93,16 @@ export function AboutSection() {
             </div>
 
             {/* Values grid */}
-            <MotionStagger className="grid grid-cols-2 gap-3 sm:gap-4">
+            <MotionStagger className="grid grid-cols-2 gap-2.5 sm:gap-3">
               {values.map((v) => (
                 <MotionStaggerItem
                   key={v.title}
-                  className="group flex flex-col gap-2 rounded-2xl border border-sage-200/70 bg-beige-50/95 p-4 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] lg:gap-3 lg:rounded-3xl lg:p-5"
+                  className="group flex h-28 flex-col items-center justify-center gap-3 rounded-2xl border border-sage-200/70 bg-beige-50/95 px-4 py-3 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] lg:h-32 lg:gap-4 lg:rounded-3xl lg:px-5 lg:py-4"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100 lg:h-11 lg:w-11 lg:text-xl" aria-hidden="true">
                     {v.icon}
                   </span>
-                  <h3 className="font-semibold text-sage-900 text-sm">{v.title}</h3>
-                  <p className="text-xs leading-6 text-muted">{v.desc}</p>
+                  <h3 className="text-center font-semibold text-sage-900 text-sm">{v.title}</h3>
                 </MotionStaggerItem>
               ))}
             </MotionStagger>
