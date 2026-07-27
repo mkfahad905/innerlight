@@ -16,7 +16,7 @@ export function Accordion({ items }: AccordionProps) {
   };
 
   return (
-    <MotionStagger className="flex flex-col gap-3">
+    <MotionStagger className="flex flex-col gap-2.5 lg:gap-3">
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (
@@ -31,7 +31,7 @@ export function Accordion({ items }: AccordionProps) {
               aria-expanded={isOpen}
               aria-controls={`faq-panel-${item.id}`}
               onClick={() => toggle(item.id)}
-              className="group flex w-full items-center justify-between gap-4 px-7 py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400 focus-visible:ring-inset"
+              className="group flex min-h-12 w-full items-center justify-between gap-3 px-5 py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400 focus-visible:ring-inset lg:gap-4 lg:px-7 lg:py-6"
             >
               <span className="font-semibold text-sage-900 text-base sm:text-lg pr-2 group-hover:text-sage-600 transition-colors duration-200">
                 {item.question}
@@ -65,7 +65,7 @@ export function Accordion({ items }: AccordionProps) {
               className={`accordion-content ${isOpen ? "open" : ""}`}
             >
               <div>
-                <p className="px-7 pb-7 text-base leading-7 text-muted">
+                <p className="px-5 pb-5 text-sm leading-6 text-muted lg:px-7 lg:pb-7 lg:text-base lg:leading-7">
                   {item.answer}
                 </p>
               </div>

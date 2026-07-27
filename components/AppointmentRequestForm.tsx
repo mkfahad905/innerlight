@@ -8,7 +8,7 @@ const inputBaseClasses =
   "w-full rounded-2xl border border-beige-200 bg-white px-4 py-3 text-sm text-sage-900 outline-none transition-all duration-200 placeholder:text-muted/60 focus:border-sage-400 focus:ring-2 focus:ring-sage-100";
 
 const fieldShellClasses =
-  "rounded-3xl border border-sage-200/70 bg-beige-50/95 p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] sm:p-6";
+  "rounded-3xl border border-sage-200/70 bg-beige-50/95 p-4 shadow-[var(--shadow-card)] transition-all duration-300 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] md:p-5 lg:p-6";
 
 const initialValues = appointmentFields.reduce<Record<string, string>>(
   (values, field) => {
@@ -102,15 +102,15 @@ export function AppointmentRequestForm() {
   };
 
   return (
-    <main className="min-h-screen bg-beige-100 py-14 sm:py-20 lg:py-24">
+    <main className="min-h-screen bg-beige-100 py-10 md:py-14 lg:py-24">
       <div className="container-custom max-w-4xl">
-        <div className="flex flex-col gap-10">
-          <header className="flex flex-col gap-5 text-center">
+        <div className="flex flex-col gap-7 lg:gap-10">
+          <header className="flex flex-col gap-3 text-center lg:gap-5">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sage-600">
               Appointment Request
             </p>
-            <div className="flex flex-col gap-4">
-              <h1 className="font-display text-3xl font-semibold leading-tight text-sage-900 sm:text-5xl">
+            <div className="flex flex-col gap-2.5 lg:gap-4">
+              <h1 className="font-display text-3xl font-semibold leading-tight text-sage-900 md:text-4xl lg:text-5xl">
                 Therapy Appointment Request
               </h1>
               <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
@@ -125,7 +125,7 @@ export function AppointmentRequestForm() {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="flex flex-col gap-5"
+            className="flex flex-col gap-4 lg:gap-5"
             aria-label="Appointment request form"
           >
             {appointmentFields.map((field) => {
@@ -133,7 +133,7 @@ export function AppointmentRequestForm() {
 
               return (
                 <div key={field.id} className={fieldShellClasses}>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3 lg:gap-4">
                     <FieldLabel field={field} />
 
                     {field.type === "textarea" && (
@@ -170,7 +170,7 @@ export function AppointmentRequestForm() {
 
                     {field.type === "radio" && field.options && (
                       <div
-                        className="grid gap-3 sm:grid-cols-2"
+                        className="grid gap-2.5 sm:grid-cols-2 lg:gap-3"
                         role="radiogroup"
                         aria-invalid={Boolean(error)}
                         aria-describedby={error ? `${field.id}-error` : undefined}
@@ -244,7 +244,7 @@ export function AppointmentRequestForm() {
               </div>
             )}
 
-            <div className="flex flex-col items-center gap-3 pt-3">
+            <div className="flex flex-col items-center gap-3 pt-2 lg:pt-3">
               <button
                 type="submit"
                 disabled={isSubmitting}

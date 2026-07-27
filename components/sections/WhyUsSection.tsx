@@ -45,10 +45,10 @@ export function WhyUsSection() {
     <MotionSection
       id="why-us"
       aria-label="Why Choose InnerLight Counselling"
-      className="py-20 lg:py-32"
+      className="py-14 md:py-16 lg:py-32"
       style={{ background: "linear-gradient(180deg, #F5F0E8 0%, #EDE8DC 100%)" }}
     >
-      <div className="container-custom flex flex-col gap-16">
+      <div className="container-custom flex flex-col gap-8 md:gap-10 lg:gap-16">
         {/* Heading */}
         <div className="flex flex-col items-center">
           <SectionHeading
@@ -58,12 +58,22 @@ export function WhyUsSection() {
           />
         </div>
 
-        {/* Reasons grid */}
-        <MotionStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <p id="why-us-carousel-instructions" className="sr-only lg:hidden">
+          Swipe horizontally or use the arrow keys to explore every reason to choose InnerLight Counselling.
+        </p>
+
+        {/* Swipe carousel on touch layouts; the original reasons grid remains on desktop. */}
+        <MotionStagger
+          className="mobile-snap-carousel -mx-5 grid snap-x snap-mandatory auto-cols-[minmax(86%,1fr)] grid-flow-col gap-4 overflow-x-auto px-5 pb-2 md:-mx-7 md:auto-cols-[minmax(46%,1fr)] md:gap-5 md:px-7 lg:mx-0 lg:grid-flow-row lg:auto-cols-auto lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0 lg:snap-none"
+          role="region"
+          aria-label="Why choose us carousel"
+          aria-describedby="why-us-carousel-instructions"
+          tabIndex={0}
+        >
           {reasons.map((reason, idx) => (
             <MotionStaggerItem
               key={reason.title}
-              className="group relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-sage-200/70 bg-beige-50/95 p-8 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)]"
+              className="group relative flex h-full snap-start flex-col gap-4 overflow-hidden rounded-3xl border border-sage-200/70 bg-beige-50/95 p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] lg:h-auto lg:snap-none lg:gap-5 lg:p-8"
             >
               <div
                 className="absolute left-8 right-8 top-0 h-px bg-sage-900/35"
@@ -72,14 +82,14 @@ export function WhyUsSection() {
 
               {/* Number badge */}
               <span
-                className="absolute top-6 right-6 text-xs font-mono text-sage-600"
+                className="absolute right-5 top-5 font-mono text-xs text-sage-600 lg:right-6 lg:top-6"
                 aria-hidden="true"
               >
                 0{idx + 1}
               </span>
 
               {/* Icon */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-2xl text-sage-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-xl text-sage-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100 lg:h-14 lg:w-14 lg:text-2xl">
                 {reason.emoji}
               </div>
 
@@ -88,7 +98,7 @@ export function WhyUsSection() {
                 <h3 className="font-display font-semibold text-lg text-sage-900 leading-snug">
                   {reason.title}
                 </h3>
-                <p className="max-w-[34ch] text-sm leading-7 text-muted">{reason.description}</p>
+                <p className="max-w-[34ch] text-sm leading-6 text-muted lg:leading-7">{reason.description}</p>
               </div>
 
               {/* Bottom accent line */}
@@ -101,7 +111,7 @@ export function WhyUsSection() {
         </MotionStagger>
 
         {/* Bottom strip */}
-        <MotionDiv className="bg-sage-900 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <MotionDiv className="flex flex-col items-center justify-between gap-5 rounded-3xl bg-sage-900 p-5 sm:flex-row md:p-7 lg:gap-6 lg:p-10">
           <div className="text-center sm:text-left">
             <p className="font-display text-2xl font-semibold text-white">
               Ready to take the first step?

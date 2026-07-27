@@ -25,9 +25,9 @@ export function TestimonialsSection() {
     <MotionSection
       id="testimonials"
       aria-label="Client Testimonials"
-      className="py-20 lg:py-32 bg-beige-50 overflow-hidden"
+      className="overflow-hidden bg-beige-50 py-14 md:py-16 lg:py-32"
     >
-      <div className="container-custom flex flex-col gap-14">
+      <div className="container-custom flex flex-col gap-8 md:gap-10 lg:gap-14">
         {/* Heading */}
         <div className="flex flex-col items-center">
           <SectionHeading
@@ -37,12 +37,25 @@ export function TestimonialsSection() {
           />
         </div>
 
-        {/* Two-row masonry-style grid */}
-        <MotionStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <p id="testimonials-carousel-instructions" className="sr-only lg:hidden">
+          Swipe horizontally or use the arrow keys to read every client testimonial.
+        </p>
+
+        {/* Swipe carousel on touch layouts; the masonry-style grid remains on desktop. */}
+        <MotionStagger
+          className="mobile-snap-carousel -mx-5 grid snap-x snap-mandatory auto-cols-[minmax(86%,1fr)] grid-flow-col gap-4 overflow-x-auto px-5 pb-2 md:-mx-7 md:auto-cols-[minmax(46%,1fr)] md:gap-5 md:px-7 lg:mx-0 lg:grid-flow-row lg:auto-cols-auto lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0 lg:pb-0 lg:snap-none"
+          role="region"
+          aria-label="Client testimonials carousel"
+          aria-describedby="testimonials-carousel-instructions"
+          tabIndex={0}
+        >
           {testimonials.map((testimonial, idx) => (
-            <MotionStaggerItem key={testimonial.id}>
+            <MotionStaggerItem
+              key={testimonial.id}
+              className="h-full snap-start lg:h-auto lg:snap-none"
+            >
             <article
-              className={`group relative flex flex-col gap-6 overflow-hidden rounded-3xl border border-sage-200/70 bg-beige-50/95 p-8 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] ${
+              className={`group relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border border-sage-200/70 bg-beige-50/95 p-5 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] lg:h-auto lg:gap-6 lg:p-8 ${
                 // Offset every other card slightly for visual interest
                 idx % 2 === 1 ? "lg:translate-y-6" : ""
               }`}
@@ -54,7 +67,7 @@ export function TestimonialsSection() {
 
               {/* Quote mark */}
               <div
-                className="-mb-5 font-display text-8xl leading-none text-sage-200/80 select-none"
+                className="-mb-3 font-display text-6xl leading-none text-sage-200/80 select-none lg:-mb-5 lg:text-8xl"
                 aria-hidden="true"
               >
                 &ldquo;
@@ -66,7 +79,7 @@ export function TestimonialsSection() {
               </blockquote>
 
               {/* Footer */}
-              <footer className="flex items-center gap-3 border-t border-sage-100 pt-5">
+              <footer className="flex items-center gap-3 border-t border-sage-100 pt-4 lg:pt-5">
                 {/* Avatar */}
                 <div
                   className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-sage-200/70 bg-sage-100 text-sm font-semibold text-sage-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]"
@@ -90,15 +103,15 @@ export function TestimonialsSection() {
         </MotionStagger>
 
         {/* Trust summary bar */}
-        <MotionStagger className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 py-6 border-y border-beige-200">
+        <MotionStagger className="grid grid-cols-3 items-start justify-center gap-2 border-y border-beige-200 py-4 lg:flex lg:flex-row lg:items-center lg:gap-16 lg:py-6">
           {[
             { value: "98%", label: "Client Satisfaction" },
             { value: "100+", label: "Clients Supported" },
             { value: "4.9★", label: "Average Rating" },
           ].map((item) => (
             <MotionStaggerItem key={item.label} className="flex flex-col items-center">
-              <span className="font-display text-3xl font-semibold text-sage-900">{item.value}</span>
-              <span className="text-muted text-sm mt-0.5">{item.label}</span>
+              <span className="font-display text-2xl font-semibold text-sage-900 lg:text-3xl">{item.value}</span>
+              <span className="mt-0.5 text-center text-xs leading-5 text-muted lg:text-sm">{item.label}</span>
             </MotionStaggerItem>
           ))}
         </MotionStagger>

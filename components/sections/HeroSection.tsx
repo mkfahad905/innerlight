@@ -64,7 +64,7 @@ function TherapistCard() {
       transition={{ duration: 0.8, ease, delay: 0.28 }}
     >
       {/* Portrait — deepened gradient so card blends naturally */}
-      <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl ring-2 ring-white/20">
+      <div className="relative h-[19rem] w-full overflow-hidden rounded-3xl shadow-2xl ring-2 ring-white/20 sm:h-[22rem] lg:h-auto lg:aspect-[3/4]">
         <Image
           src="/img1.jpeg"
           alt="Safana Sabeer, psychologist at InnerLight Counselling"
@@ -86,7 +86,7 @@ function TherapistCard() {
       </div>
 
       {/* Info card — overlaps portrait by 24px via negative top margin */}
-      <div className="-mt-6 w-[92%] bg-white/12 backdrop-blur-lg border border-white/25 rounded-2xl px-6 py-5 flex flex-col gap-3.5 shadow-xl">
+      <div className="-mt-6 flex w-[92%] flex-col gap-2.5 rounded-2xl border border-white/25 bg-white/12 px-4 py-4 shadow-xl backdrop-blur-lg lg:gap-3.5 lg:px-6 lg:py-5">
         {/* Name + title row */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex flex-col gap-0.5">
@@ -104,11 +104,11 @@ function TherapistCard() {
         <div className="h-px bg-white/15" aria-hidden="true" />
 
         {/* Badges */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 lg:gap-2">
           {badges.map((badge) => (
             <span
               key={badge}
-              className="inline-flex items-center gap-1.5 bg-white/10 border border-white/15 rounded-full px-3 py-1 text-xs text-white/85"
+              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-xs text-white/85 lg:px-3"
             >
               <span
                 className="w-1.5 h-1.5 rounded-full bg-sage-300 flex-shrink-0"
@@ -156,9 +156,9 @@ export function HeroSection() {
       <FloatingShapes />
 
       {/* Main content */}
-      <div className="container-custom relative z-10 pt-28 pb-16 flex flex-col lg:flex-row items-center gap-10 lg:gap-20 lg:py-20">
+      <div className="container-custom relative z-10 flex flex-col items-center gap-7 pb-12 pt-24 sm:gap-8 sm:pb-14 sm:pt-26 lg:flex-row lg:gap-20 lg:py-20">
         {/* Left: Headline + copy + CTAs */}
-        <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left gap-7">
+        <div className="flex flex-1 flex-col items-center gap-5 text-center sm:gap-6 lg:items-start lg:gap-7 lg:text-left">
           {/* Eyebrow badge (unchanged) */}
           <m.span
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm text-white font-medium"
@@ -210,7 +210,7 @@ export function HeroSection() {
 
           {/* Subtitle — warm, empathetic, professional */}
           <m.p
-            className="text-lg sm:text-xl text-white/80 max-w-lg leading-relaxed"
+            className="max-w-lg text-base leading-7 text-white/80 sm:text-lg sm:leading-relaxed lg:text-xl"
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.2 }}
@@ -223,7 +223,7 @@ export function HeroSection() {
 
           {/* CTAs (unchanged markup, same classes) */}
           <m.div
-            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            className="flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row sm:gap-4"
             initial={reduceMotion ? false : { opacity: 0, y: 10, scale: 0.98 }}
             animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.7, ease, delay: 0.34 }}
@@ -264,7 +264,7 @@ export function HeroSection() {
         </div>
 
         {/* Right: Therapist portrait + info card */}
-        <div className="flex-shrink-0 w-full max-w-xs lg:max-w-none lg:w-72 xl:w-80">
+        <div className="w-full max-w-[17rem] flex-shrink-0 sm:max-w-xs lg:w-72 lg:max-w-none xl:w-80">
           <TherapistCard />
         </div>
       </div>

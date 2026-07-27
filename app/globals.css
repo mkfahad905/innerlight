@@ -85,11 +85,18 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 @media (min-width: 768px) {
+  .container-custom {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .container-custom {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -153,6 +160,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .accordion-content > div {
   overflow: hidden;
+}
+
+/* Native, dependency-free carousels for touch devices. */
+.mobile-snap-carousel {
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.mobile-snap-carousel::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 /* ─────────────────────────────────────────

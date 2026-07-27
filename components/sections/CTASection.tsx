@@ -13,11 +13,11 @@ export function CTASection() {
     <MotionSection
       id="start-journey"
       aria-label="Book Your Session"
-      className="py-20 lg:py-32 bg-beige-100"
+      className="bg-beige-100 py-14 md:py-16 lg:py-32"
     >
       <div className="container-custom">
         <div
-          className="relative flex flex-col items-center gap-10 overflow-hidden rounded-[2rem] border border-white/10 px-8 py-16 text-center shadow-[var(--shadow-card-hover)] sm:px-14 sm:py-20 lg:px-20"
+          className="relative flex flex-col items-center gap-7 overflow-hidden rounded-[2rem] border border-white/10 px-5 py-10 text-center shadow-[var(--shadow-card-hover)] md:px-10 md:py-12 lg:gap-10 lg:px-20 lg:py-20"
           style={{
             background:
               "linear-gradient(135deg, #2D4A3E 0%, #3D5E52 40%, #4E6A5E 75%, #5A7A6A 100%)",
@@ -42,25 +42,25 @@ export function CTASection() {
 
           {/* Leaf icon */}
           <MotionDiv
-            className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/10 text-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-sm"
+            className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 text-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-sm lg:h-16 lg:w-16 lg:text-3xl"
             aria-hidden="true"
           >
             🌿
           </MotionDiv>
 
           {/* Heading */}
-          <MotionDiv className="relative z-10 flex flex-col items-center gap-5 max-w-2xl">
+          <MotionDiv className="relative z-10 flex max-w-2xl flex-col items-center gap-3 lg:gap-5">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-white leading-tight">
               Ready to Take the{" "}
               <span className="italic text-sage-200">First Step?</span>
             </h2>
-            <p className="text-lg text-white/75 leading-relaxed max-w-xl">
+            <p className="max-w-xl text-base leading-7 text-white/75 lg:text-lg lg:leading-relaxed">
               Take the first step toward emotional well-being. Complete the appointment request form to begin your counselling journey.
             </p>
           </MotionDiv>
 
           {/* Trust badges */}
-          <MotionStagger className="relative z-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <MotionStagger className="relative z-10 flex flex-wrap items-center justify-center gap-2 lg:gap-4">
             {trustBadges.map((badge) => (
               <MotionStaggerItem
                 key={badge.label}

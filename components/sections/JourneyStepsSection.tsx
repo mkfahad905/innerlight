@@ -146,9 +146,9 @@ export function JourneyStepsSection() {
     <MotionSection
       id="journey"
       aria-label="How Your Journey Begins"
-      className="py-20 lg:py-32 bg-beige-50"
+      className="bg-beige-50 py-14 md:py-16 lg:py-32"
     >
-      <div className="container-custom flex flex-col gap-16">
+      <div className="container-custom flex flex-col gap-8 md:gap-10 lg:gap-16">
         {/* Heading */}
         <div className="flex flex-col items-center">
           <SectionHeading
@@ -159,13 +159,19 @@ export function JourneyStepsSection() {
         </div>
 
         {/* Steps grid — 2 columns on md, 3 on lg */}
-        <MotionStagger className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+        <MotionStagger className="relative grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:gap-y-10 lg:grid-cols-3">
+          <span
+            className="pointer-events-none absolute bottom-6 left-[23px] top-6 w-px bg-sage-200 md:hidden"
+            aria-hidden="true"
+          />
           {steps.map((step, idx) => {
             const isLast = idx === steps.length - 1;
             return (
               <MotionStaggerItem
                 key={step.number}
-                className="relative flex flex-col gap-5 group"
+                className={`group relative grid grid-cols-[3rem_minmax(0,1fr)] gap-3 md:flex md:flex-col md:gap-5 md:pb-0 ${
+                  isLast ? "" : "pb-5"
+                }`}
               >
                 {/* Connector line — visible on lg between columns, hidden on last of each row */}
                 {!isLast && (
@@ -178,10 +184,15 @@ export function JourneyStepsSection() {
                   />
                 )}
 
+                {/* Mobile timeline marker */}
+                <div className="relative z-10 col-start-1 row-start-1 flex h-12 w-12 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-sage-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] md:hidden">
+                  {step.icon}
+                </div>
+
                 {/* Card */}
-                <div className="flex h-full flex-col gap-5 rounded-3xl border border-sage-200/70 bg-beige-50/95 p-7 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)]">
+                <div className="col-start-2 row-start-1 flex h-full flex-col gap-3 rounded-2xl border border-sage-200/70 bg-beige-50/95 p-4 shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] md:col-start-auto md:row-start-auto md:gap-5 md:rounded-3xl md:p-7">
                   {/* Icon + step number row */}
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="hidden items-center justify-between gap-4 md:flex">
                     {/* Icon circle */}
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-sage-200/70 bg-sage-50 text-sage-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)] transition-colors duration-300 group-hover:bg-sage-100">
                       {step.icon}
@@ -192,19 +203,23 @@ export function JourneyStepsSection() {
                     </span>
                   </div>
 
+                  <span className="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-sage-600 md:hidden">
+                    Step {step.number}
+                  </span>
+
                   {/* Text */}
-                  <div className="flex flex-col gap-2">
-                    <h3 className="font-display font-semibold text-lg text-sage-900 leading-snug">
+                  <div className="flex flex-col gap-1.5 md:gap-2">
+                    <h3 className="font-display text-base font-semibold leading-snug text-sage-900 md:text-lg">
                       {step.title}
                     </h3>
-                    <p className="max-w-[34ch] text-sm leading-7 text-muted">
+                    <p className="max-w-[34ch] text-sm leading-6 text-muted md:leading-7">
                       {step.description}
                     </p>
                   </div>
 
                   {/* Bottom accent line on hover */}
                   <div
-                    className="mt-auto h-px origin-left scale-x-0 rounded-full bg-sage-900/30 transition-transform duration-300 group-hover:scale-x-100"
+                    className="mt-auto hidden h-px origin-left scale-x-0 rounded-full bg-sage-900/30 transition-transform duration-300 group-hover:scale-x-100 md:block"
                     aria-hidden="true"
                   />
                 </div>
@@ -215,12 +230,12 @@ export function JourneyStepsSection() {
 
         {/* Reassurance strip */}
         <MotionDiv
-          className="rounded-3xl px-8 py-7 flex flex-col sm:flex-row items-center gap-5 sm:gap-8"
+          className="flex flex-col items-center gap-3 rounded-3xl px-5 py-5 sm:flex-row sm:gap-5 md:px-6 md:py-6 lg:gap-8 lg:px-8 lg:py-7"
           style={{ background: "linear-gradient(135deg, #2D4A3E 0%, #4E6A5E 100%)" }}
         >
-          <span className="text-4xl flex-shrink-0" aria-hidden="true">🌿</span>
+          <span className="flex-shrink-0 text-3xl lg:text-4xl" aria-hidden="true">🌿</span>
           <div className="text-center sm:text-left">
-            <p className="font-display font-semibold text-white text-xl leading-snug">
+            <p className="font-display text-lg font-semibold leading-snug text-white lg:text-xl">
               You don&rsquo;t have to have it all figured out before reaching out.
             </p>
             <p className="text-sage-200 text-sm mt-1 leading-relaxed">

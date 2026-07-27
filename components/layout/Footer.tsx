@@ -39,9 +39,9 @@ export function Footer() {
       className="bg-sage-900 text-white"
     >
       {/* Upper section */}
-      <div className="container-custom py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="container-custom grid grid-cols-2 gap-8 py-10 md:grid-cols-2 md:py-12 lg:grid-cols-4 lg:gap-10 lg:py-16">
         {/* Brand column */}
-        <div className="lg:col-span-1 flex flex-col gap-5">
+        <div className="col-span-2 flex flex-col gap-4 md:col-span-1 lg:col-span-1 lg:gap-5">
           <Link href="/#home" aria-label="InnerLight Counselling homepage" className="flex items-center gap-2.5 w-fit">
             <Image
               src="/innerlight-logo-dark.svg"
@@ -62,7 +62,7 @@ export function Footer() {
                 key={social.label}
                 href={social.href}
                 aria-label={`Follow us on ${social.label}`}
-                className="w-9 h-9 rounded-full bg-sage-800 hover:bg-sage-500 flex items-center justify-center text-sage-300 hover:text-white transition-all duration-200"
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-sage-800 text-sage-300 transition-all duration-200 hover:bg-sage-500 hover:text-white lg:h-9 lg:w-9"
               >
                 {social.icon}
               </a>
@@ -96,7 +96,7 @@ export function Footer() {
       <div className="border-t border-sage-800" />
 
       {/* Bottom bar */}
-      <div className="container-custom py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sage-300 text-sm">
+      <div className="container-custom flex flex-col items-center justify-between gap-2 py-4 text-center text-sm text-sage-300 sm:flex-row sm:text-left lg:gap-3 lg:py-6">
         <p>© {currentYear} InnerLight Counselling. All rights reserved.</p>
         <p className="text-sage-300">
           Designed with{" "}

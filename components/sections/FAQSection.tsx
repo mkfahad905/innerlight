@@ -8,12 +8,12 @@ export function FAQSection() {
     <MotionSection
       id="faq"
       aria-label="Frequently Asked Questions"
-      className="py-20 lg:py-32 bg-beige-100"
+      className="bg-beige-100 py-14 md:py-16 lg:py-32"
     >
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start">
+        <div className="grid grid-cols-1 items-start gap-8 md:gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
           {/* Left: Heading + contact nudge */}
-          <div className="lg:sticky lg:top-28 flex flex-col gap-8">
+          <div className="flex flex-col gap-6 lg:sticky lg:top-28 lg:gap-8">
             <SectionHeading
               eyebrow="FAQ"
               title="Questions &amp; Answers"
@@ -22,7 +22,7 @@ export function FAQSection() {
             />
 
             {/* Still have questions card */}
-            <MotionDiv className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-sage-900 p-7 shadow-[var(--shadow-card)]">
+            <MotionDiv className="flex flex-col gap-3 rounded-3xl border border-white/10 bg-sage-900 p-5 shadow-[var(--shadow-card)] lg:gap-4 lg:p-7">
               <div
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-sage-700 text-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
                 aria-hidden="true"

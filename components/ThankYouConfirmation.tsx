@@ -73,7 +73,7 @@ function Heading() {
 
   return (
     <m.h1
-      className="font-display text-3xl font-semibold leading-tight text-sage-900 sm:text-5xl lg:text-6xl"
+      className="font-display text-3xl font-semibold leading-tight text-sage-900 md:text-4xl lg:text-6xl"
       initial={reduceMotion ? false : "hidden"}
       animate={reduceMotion ? undefined : "visible"}
       variants={{
@@ -127,7 +127,7 @@ export function ThankYouConfirmation({
   return (
     <LazyMotion features={domAnimation}>
       <main
-        className="relative min-h-screen overflow-hidden px-4 py-16 sm:px-8 sm:py-20 lg:px-10"
+        className="relative min-h-screen overflow-hidden px-4 py-8 md:px-6 md:py-10 lg:px-10 lg:py-20"
         aria-label="Thank you confirmation"
         style={{
           background:
@@ -157,16 +157,16 @@ export function ThankYouConfirmation({
         }}
       />
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-5xl items-center justify-center sm:min-h-[calc(100vh-10rem)]">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-5xl items-center justify-center md:min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-10rem)]">
         <m.section
-          className="w-full rounded-[2rem] border border-white/60 bg-white/80 px-5 py-9 shadow-[0_24px_80px_-32px_rgba(45,74,62,0.38)] backdrop-blur-xl sm:px-10 sm:py-14 lg:px-16"
+          className="w-full rounded-[2rem] border border-white/60 bg-white/80 px-5 py-7 shadow-[0_24px_80px_-32px_rgba(45,74,62,0.38)] backdrop-blur-xl md:px-8 md:py-9 lg:px-16 lg:py-14"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.96, y: 18 }}
           animate={reduceMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.75, ease }}
         >
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <m.div
-              className="relative mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-sage-900 text-white shadow-[0_0_0_12px_rgba(122,158,135,0.12),0_22px_52px_-22px_rgba(45,74,62,0.75)]"
+              className="relative mb-5 flex h-18 w-18 items-center justify-center rounded-full bg-sage-900 text-white shadow-[0_0_0_12px_rgba(122,158,135,0.12),0_22px_52px_-22px_rgba(45,74,62,0.75)] lg:mb-8 lg:h-24 lg:w-24"
               initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
               animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
               transition={{ duration: 0.55, ease, delay: 0.08 }}
@@ -174,7 +174,7 @@ export function ThankYouConfirmation({
             >
               <span className="absolute inset-0 rounded-full bg-sage-500/15 blur-xl" />
               <svg
-                className="relative h-11 w-11"
+                className="relative h-8 w-8 lg:h-11 lg:w-11"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -191,7 +191,7 @@ export function ThankYouConfirmation({
             <Heading />
 
             <m.p
-              className="mt-6 max-w-[550px] text-base leading-8 text-muted sm:text-lg"
+              className="mt-4 max-w-[550px] text-base leading-7 text-muted lg:mt-6 lg:text-lg lg:leading-8"
               initial={reduceMotion ? false : { opacity: 0, y: 14 }}
               animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.26 }}
@@ -202,7 +202,7 @@ export function ThankYouConfirmation({
             </m.p>
 
             <m.div
-              className="my-10 h-px w-full max-w-xl bg-gradient-to-r from-transparent via-sage-200 to-transparent"
+              className="my-6 h-px w-full max-w-xl bg-gradient-to-r from-transparent via-sage-200 to-transparent lg:my-10"
               initial={reduceMotion ? false : { opacity: 0 }}
               animate={reduceMotion ? undefined : { opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.36 }}
@@ -210,7 +210,7 @@ export function ThankYouConfirmation({
             />
 
             <m.ol
-              className="relative flex w-full max-w-2xl flex-col gap-5 text-left"
+              className="relative flex w-full max-w-2xl flex-col gap-3 text-left lg:gap-5"
               role="list"
               aria-label="Journey progress"
               initial={reduceMotion ? false : "hidden"}
@@ -226,13 +226,13 @@ export function ThankYouConfirmation({
               }}
             >
               <span
-                className="absolute bottom-8 left-6 top-8 w-px bg-gradient-to-b from-sage-200 via-sage-300 to-transparent"
+                className="absolute bottom-8 left-[37px] top-8 w-px bg-gradient-to-b from-sage-200 via-sage-300 to-transparent lg:left-6"
                 aria-hidden="true"
               />
               {timeline.map((item, index) => (
                 <m.li
                   key={item.title}
-                  className="group relative flex flex-wrap gap-4 rounded-3xl border border-sage-200/70 bg-beige-50/90 p-5 shadow-[var(--shadow-card)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] sm:flex-nowrap sm:gap-5 sm:p-6"
+                  className="group relative flex flex-wrap gap-3 rounded-2xl border border-sage-200/70 bg-beige-50/90 p-4 shadow-[var(--shadow-card)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-sage-900 hover:shadow-[var(--shadow-card-hover)] md:flex-nowrap lg:gap-5 lg:rounded-3xl lg:p-6"
                   variants={{
                     hidden: { opacity: 0, y: 22 },
                     visible: {
@@ -243,7 +243,7 @@ export function ThankYouConfirmation({
                   }}
                 >
                   <div
-                    className={`relative z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border text-sm font-semibold ${
+                    className={`relative z-10 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border text-sm font-semibold lg:h-12 lg:w-12 ${
                       item.complete
                         ? "border-sage-700 bg-sage-900 text-white"
                         : "border-sage-200 bg-beige-50 text-sage-600"
@@ -272,12 +272,12 @@ export function ThankYouConfirmation({
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage-700">
                       {item.step}
                     </p>
-                    <h2 className="font-display text-xl font-semibold leading-snug text-sage-900">
+                    <h2 className="font-display text-lg font-semibold leading-snug text-sage-900 lg:text-xl">
                       {item.title}
                     </h2>
                   </div>
                   <span
-                    className={`ml-[4rem] self-start rounded-full px-3 py-1 text-xs font-semibold sm:ml-0 ${
+                    className={`ml-[3.25rem] self-start rounded-full px-3 py-1 text-xs font-semibold md:ml-0 ${
                       item.complete
                         ? "bg-sage-50 text-sage-700"
                         : "bg-beige-100 text-muted"
@@ -290,7 +290,7 @@ export function ThankYouConfirmation({
             </m.ol>
 
             <m.div
-              className="mt-10 max-w-[550px] space-y-3 text-center text-sm leading-7 text-muted sm:text-base"
+              className="mt-6 max-w-[550px] space-y-2 text-center text-sm leading-6 text-muted lg:mt-10 lg:space-y-3 lg:text-base lg:leading-7"
               initial={reduceMotion ? false : { opacity: 0, y: 14 }}
               animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 0.88 }}
@@ -303,7 +303,7 @@ export function ThankYouConfirmation({
             </m.div>
 
             <m.div
-              className="mt-9 flex w-full max-w-md flex-col items-center gap-4"
+              className="mt-6 flex w-full max-w-md flex-col items-center gap-3 lg:mt-9 lg:gap-4"
               initial={reduceMotion ? false : { opacity: 0, y: 14 }}
               animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease, delay: 1 }}

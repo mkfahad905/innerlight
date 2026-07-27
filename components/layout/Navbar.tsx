@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/Button";
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
+  { href: "/#session-fee", label: "Session Fee" },
   { href: "#why-us", label: "Why Us" },
   { href: "#testimonials", label: "Testimonials" },
   { href: "#faq", label: "FAQ" },
@@ -44,6 +45,25 @@ export function Navbar() {
     }
     setActiveHref("#home");
     homeSection.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  };
+
+  const handleSessionFeeClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    setActiveHref("#session-fee");
+    setMobileOpen(false);
+
+    if (window.location.pathname !== "/") return;
+
+    const sessionFeeSection = document.getElementById("session-fee");
+    if (!sessionFeeSection) return;
+
+    event.preventDefault();
+    if (window.location.hash !== "#session-fee") {
+      window.history.pushState(null, "", "/#session-fee");
+    }
+    sessionFeeSection.scrollIntoView({
       behavior: reduceMotion ? "auto" : "smooth",
       block: "start",
     });
@@ -111,7 +131,7 @@ export function Navbar() {
       >
         <nav
           aria-label="Main navigation"
-          className="container-custom h-20 flex items-center justify-between"
+          className="container-custom flex h-18 items-center justify-between lg:h-20"
         >
           {/* Logo */}
           <m.div
@@ -131,7 +151,7 @@ export function Navbar() {
                 alt=""
                 width={200}
                 height={61}
-                className="w-[200px] h-auto"
+                className="h-auto w-[172px] lg:w-[200px]"
                 aria-hidden="true"
               />
             </Link>
@@ -143,6 +163,11 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  onClick={
+                    link.href === "/#session-fee"
+                      ? handleSessionFeeClick
+                      : undefined
+                  }
                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 after:absolute after:left-4 after:right-4 after:bottom-1.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:opacity-55 after:transition-transform after:duration-300 hover:after:scale-x-100 ${
                     scrolled
                       ? "text-sage-800 hover:bg-sage-100 hover:text-sage-700"
@@ -235,7 +260,7 @@ export function Navbar() {
               exit={reduceMotion ? undefined : { opacity: 0, x: 64 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="h-20 flex items-center justify-between gap-4 px-6 border-b border-sage-200/50">
+              <div className="flex h-18 items-center justify-between gap-4 border-b border-sage-200/50 px-5">
                 <Link
                   href="/#home"
                   aria-label="InnerLight Counselling homepage"
@@ -268,7 +293,7 @@ export function Navbar() {
                 </button>
               </div>
 
-              <nav aria-label="Mobile navigation" className="flex-1 overflow-y-auto px-5 py-6">
+              <nav aria-label="Mobile navigation" className="flex-1 overflow-y-auto px-5 py-4">
                 <m.ul
                   className="flex flex-col gap-2"
                   role="list"
@@ -285,7 +310,10 @@ export function Navbar() {
                   }}
                 >
                   {navLinks.map((link) => {
-                    const isActive = activeHref === link.href;
+                    const isActive =
+                      activeHref === link.href ||
+                      (link.href === "/#session-fee" &&
+                        activeHref === "#session-fee");
 
                     return (
                       <m.li
@@ -301,7 +329,11 @@ export function Navbar() {
                       >
                         <a
                           href={link.href}
-                          onClick={() => {
+                          onClick={(event) => {
+                            if (link.href === "/#session-fee") {
+                              handleSessionFeeClick(event);
+                              return;
+                            }
                             setActiveHref(link.href);
                             setMobileOpen(false);
                           }}
@@ -319,7 +351,7 @@ export function Navbar() {
                 </m.ul>
               </nav>
 
-              <div className="p-6 border-t border-sage-200/50">
+              <div className="border-t border-sage-200/50 p-5">
                 <Button
                   as="a"
                   href="/start-your-journey"

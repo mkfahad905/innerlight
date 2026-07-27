@@ -8,6 +8,11 @@ const AboutSection = dynamic(() =>
 const ServicesSection = dynamic(() =>
   import("@/components/sections/ServicesSection").then((mod) => mod.ServicesSection),
 );
+const SessionFeeSection = dynamic(() =>
+  import("@/components/sections/SessionFeeSection").then(
+    (mod) => mod.SessionFeeSection,
+  ),
+);
 const JourneyStepsSection = dynamic(() =>
   import("@/components/sections/JourneyStepsSection").then((mod) => mod.JourneyStepsSection),
 );
@@ -35,6 +40,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <SessionFeeSection />
         <JourneyStepsSection />
         <WhyUsSection />
         <TestimonialsSection />

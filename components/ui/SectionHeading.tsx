@@ -23,7 +23,7 @@ export function SectionHeading({
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-        className={`flex flex-col gap-3 ${alignClass}`}
+        className={`flex flex-col gap-2 lg:gap-3 ${alignClass}`}
         initial={reduceMotion ? false : "hidden"}
         whileInView={reduceMotion ? undefined : "visible"}
         viewport={{ once: true, amount: 0.5 }}
@@ -38,7 +38,7 @@ export function SectionHeading({
       >
       {eyebrow && (
         <m.span
-          className="inline-flex items-center gap-2 text-sage-600 text-sm font-semibold uppercase tracking-widest"
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-sage-600 lg:text-sm"
           variants={{
             hidden: { opacity: 0, y: 12 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
@@ -60,7 +60,7 @@ export function SectionHeading({
       </m.h2>
       {subtitle && (
         <m.p
-          className="text-lg text-muted max-w-2xl leading-relaxed mt-1"
+          className="max-w-2xl text-base leading-7 text-muted lg:mt-1 lg:text-lg lg:leading-relaxed"
           variants={{
             hidden: { opacity: 0, y: 12 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
